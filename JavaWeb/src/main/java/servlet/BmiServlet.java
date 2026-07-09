@@ -26,7 +26,7 @@ public class BmiServlet extends HttpServlet {
 		double bmi = w / Math.pow(h/100, 2);
 		
 		// 判斷 bmi 正常, 過重, 過輕 
-		String result = ??
+		String result = (bmi > 23) ? "過重" : (bmi <= 18) ? "過輕" : "正常";
 		
 		// html
 		String html = "身高: %.1f 體重: %.1f BMI: %.2f 判斷: %s".formatted(h, w, bmi, result);
