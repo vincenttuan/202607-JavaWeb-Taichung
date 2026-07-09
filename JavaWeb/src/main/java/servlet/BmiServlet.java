@@ -26,7 +26,7 @@ public class BmiServlet extends HttpServlet {
 		double bmi = w / Math.pow(h/100, 2);
 		
 		// html
-		String html = "身高: %.1f 體重: %.1f BMI: %.1f".formatted(h, w, bmi);
+		String html = "身高: %.1f 體重: %.1f BMI: %.2f".formatted(h, w, bmi);
 		
 		// 回應
 		resp.getWriter().print(html);
