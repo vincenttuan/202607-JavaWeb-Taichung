@@ -27,7 +27,7 @@ public class LottoServlet extends HttpServlet {
 		int num4 = random.nextInt(10); // 0~9
 		
 		// 產生 html
-		String html = "四星彩電腦選號: %d%d%d%d";
+		String html = "<meta http-equiv='refresh' content='1'> 四星彩電腦選號: %d%d%d%d";
 		html = String.format(html, num1, num2, num3, num4);
 		
 		// 回應
