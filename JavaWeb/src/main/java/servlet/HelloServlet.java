@@ -21,7 +21,7 @@ public class HelloServlet extends HttpServlet {
 		String html = "now => " + dt.getHour() + ":" + dt.getMinute() + ":" + dt.getSecond();
 		
 		// 回應
-		resp.getWriter().print(html);
+		resp.getWriter().print(html); 
 	}
 	
 }
