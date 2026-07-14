@@ -10,7 +10,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/hello")
+//@WebServlet("/hello")
+@WebServlet(name = "Hello", urlPatterns = {"/hello", "/hi"})
 public class HelloServlet extends HttpServlet {
 	
 	@Override
@@ -25,9 +26,14 @@ public class HelloServlet extends HttpServlet {
 		// 取得現在時刻
 		LocalDateTime dt = LocalDateTime.now();
 		
+		// 取得 servlet path
+		// 會得到 "/hello" 或 "/hi"
+		String servletPath = req.getServletPath();
+		
 		// 建立 html 字串
 		String html = "現在時刻 => " + dt.getHour() + ":" + dt.getMinute() + ":" + dt.getSecond();
-		
+		html += "<p />ServletPath = " + servletPath;
+				
 		// 回應
 		resp.getWriter().print(html); 
 	}
