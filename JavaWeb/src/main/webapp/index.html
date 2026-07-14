@@ -29,7 +29,7 @@
 		</div>
 		<div>
 			<fieldset>
-				<legend>Servlet Get 資料參數</legend>
+				<legend>Servlet Get 資料參數(Query String)</legend>
 				<ul>
 					<li>
 						<a href="/JavaWeb/drink?name=珍珠奶茶&size=L&sugar=3&ice=0&qty=3">
@@ -37,10 +37,26 @@
 						</a>
 					</li>
 				</ul>
-				
 			</fieldset>
-			
 		</div>
-		
+		<div>
+			<fieldset>
+				<legend>Servlet Get 資料參數(Form)</legend>
+				<form action="/JavaWeb/drink">
+					品名: <input type="text" name="name" placeholder="請輸入品名" required><p />
+					尺寸: <input type="text" name="size" placeholder="請輸入尺寸" required><p />
+					糖分: <input type="number" name="sugar" placeholder="請輸入糖分(0~10)" min="0" max="10" value="5" required><p />
+					冰量: <input type="number" name="ice" placeholder="請輸入冰量(0~10)" min="0" max="10" value="5" required><p />
+					數量: <input type="number" name="qty" placeholder="請輸入數量(1~100)" min="1" max="100" value="1" required><p />
+					
+					<button type="reset">重置</button>
+					<button type="submit">送出</button>
+					
+				</form>
+			</fieldset>
+		</div>
 	</body>
 </html>
+
+
+
