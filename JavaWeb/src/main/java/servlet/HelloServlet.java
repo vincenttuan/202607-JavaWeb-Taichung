@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 //@WebServlet("/hello")
-@WebServlet(name = "Hello", urlPatterns = {"/hello", "/hi"})
+@WebServlet(name = "Hello", urlPatterns = {"/hello", "/hi", "/any/*"})
 public class HelloServlet extends HttpServlet {
 	
 	@Override
@@ -30,9 +30,14 @@ public class HelloServlet extends HttpServlet {
 		// 會得到 "/hello" 或 "/hi"
 		String servletPath = req.getServletPath();
 		
+		// 取得 Path info
+		// 取得 /* 的資訊
+		String pathInfo = req.getPathInfo();
+		
 		// 建立 html 字串
 		String html = "現在時刻 => " + dt.getHour() + ":" + dt.getMinute() + ":" + dt.getSecond();
 		html += "<p />ServletPath = " + servletPath;
+		html += "<p />PathInfo = " + pathInfo;
 				
 		// 回應
 		resp.getWriter().print(html); 
