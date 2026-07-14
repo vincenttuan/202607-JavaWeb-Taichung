@@ -43,13 +43,18 @@
 			<fieldset>
 				<legend>Servlet Get 資料參數(Form)</legend>
 				<form action="/JavaWeb/drink">
+					<!-- 下拉選單 -->
 					品名:<select name="name">
 							<option value="珍珠奶茶">1.珍珠奶茶</option>
 							<option value="紅茶拿鐵">2.紅茶拿鐵</option>
 							<option value="百香綠茶">3.百香綠茶</option>
 						</select><p />
-					
-					尺寸: <input type="text" name="size" placeholder="請輸入尺寸" required><p />
+						
+					<!-- 單選核選盒 -->
+					尺寸: <input type="radio" name="size" value="S">小杯(S)
+						 <input type="radio" name="size" value="M" checked>中杯(M)
+						 <input type="radio" name="size" value="L">大杯(L)<p />
+						 
 					糖分: <input type="number" name="sugar" placeholder="請輸入糖分(0~10)" min="0" max="10" value="5" required><p />
 					冰量: <input type="number" name="ice" placeholder="請輸入冰量(0~10)" min="0" max="10" value="5" required><p />
 					數量: <input type="number" name="qty" placeholder="請輸入數量(1~100)" min="1" max="100" value="1" required><p />
