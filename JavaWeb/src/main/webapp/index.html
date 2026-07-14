@@ -57,8 +57,11 @@
 						 
 					糖分: <input type="number" name="sugar" placeholder="請輸入糖分(0~10)" min="0" max="10" value="5" required><p />
 					冰量: <input type="number" name="ice" placeholder="請輸入冰量(0~10)" min="0" max="10" value="5" required><p />
-					數量: <input type="number" name="qty" placeholder="請輸入數量(1~100)" min="1" max="100" value="1" required><p />
-					
+					數量: 
+						<input type="range" name="qty" placeholder="請輸入數量(1~100)" min="1" max="100" value="1" required oninput="qtyValue.innerHTML=this.value">
+						<span id="qtyValue">1</span>杯
+						<p />
+						
 					<button type="reset">重置</button>
 					<button type="submit">送出</button>
 					
