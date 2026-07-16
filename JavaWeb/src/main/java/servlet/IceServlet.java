@@ -1,7 +1,13 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -53,6 +59,16 @@ public class IceServlet extends HttpServlet {
 		
 		
 		resp.getWriter().print(html);
+	}
+	
+	// 使用 ZXing 產生 QRCode
+	private void createQRCode(String text, String path) {
+		try {
+			BitMatrix matrix = new QRCodeWriter().encode(text, BarcodeFormat.QR_CODE, 300, 300);
+			MatrixToImageWriter.writeToPath(matrix, "PNG", new File(path).toPath());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
