@@ -24,9 +24,9 @@ public class IceServlet extends HttpServlet {
 		String size = req.getParameter("size");
 		String sweet = req.getParameter("sweet");
 		String ice = req.getParameter("ice");
+		String[] toppings = req.getParameterValues("topping");
 		String qty = req.getParameter("qty");
 		String pickupDate = req.getParameter("pickupDate");
-		String[] toppings = req.getParameterValues("topping");
 		String birthday = req.getParameter("birthday") == null ? "否" : "壽星";
 		String memo = req.getParameter("memo");
 		
