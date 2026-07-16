@@ -65,9 +65,12 @@ public class IceServlet extends HttpServlet {
 						取餐日期：%s<br />
 						壽星：%s<br />
 						備註：%s<br />
+						
+						<img src='/JavaWeb/images/%s'>
+						
 					</body>
 				</html>
-				""".formatted(iceName, size, sweet, ice, Arrays.toString(toppings), qty, pickupDate, birthday, memo);
+				""".formatted(iceName, size, sweet, ice, Arrays.toString(toppings), qty, pickupDate, birthday, memo, fileName);
 		
 		
 		resp.getWriter().print(html);
