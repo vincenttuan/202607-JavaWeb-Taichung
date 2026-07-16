@@ -36,6 +36,18 @@ public class IceServlet extends HttpServlet {
 		String birthday = req.getParameter("birthday") == null ? "否" : "壽星";
 		String memo = req.getParameter("memo");
 		
+		// QRCode 內容
+		String text = "冰品：%s 大小：%s 甜度：%s 冰量：%s 配料：%s 數量：%s 取餐日期：%s 壽星：%s 備註：%s"
+						.formatted(iceName, size, sweet, ice, Arrays.toString(toppings), qty, pickupDate, birthday, memo);
+		// QRCode 檔名
+		String fileName = "ice_qrcode.png";
+		
+		// QRCode 存放位置
+		String path = getServletContext().getRealPath("/images/" + fileName);
+		
+		// 產生 QRCode
+		createQRCode(text, path);
+		
 		// 訂單內容
 		String html = """
 				<html>
