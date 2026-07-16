@@ -46,7 +46,7 @@
 				<legend>🍨 客製化您的剉冰</legend>
 				<table border=0>
 					<tr>
-						<td>🍧 冰品</td>
+						<td>🍧 冰品：</td>
 						<td>
 							<select name="iceName">
 								<option value="芒果冰">🥭 芒果冰</option>
@@ -58,7 +58,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>📏 大小</td>
+						<td>📏 大小：</td>
 						<td>
 							<input type="radio" name="size" value="S"> 小碗
 							<input type="radio" name="size" value="M"> 中碗
@@ -66,13 +66,25 @@
 						</td>
 					</tr>
 					<tr>
-						<td>🍬 甜度</td>
+						<td>🍬 甜度：</td>
 						<td>
 							<input type="range" name="sweet" min="0" max="10" value="5" oninput="sweetValue.innerText=this.value" >
 							<span id="sweetValue">5</span>/10
 						</td>
 					</tr>
-					
+					<tr>
+						<td>❄️ 冰量：</td>
+						<td>
+							<input type="range" name="ice" min="0" max="10" value="5" oninput="iceValue.innerText=this.value" >
+							<span id="iceValue">5</span>/10
+						</td>
+					</tr>
+					<tr>
+						<td>🥜 配料（可複選）：</td>
+						<td>
+							
+						</td>
+					</tr>
 				</table>
 				
 			</fieldset>
