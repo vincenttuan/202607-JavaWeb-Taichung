@@ -64,7 +64,7 @@ public class IceServlet extends HttpServlet {
 						數量：%s<br />
 						取餐日期：%s<br />
 						壽星：%s<br />
-						備註：%s<br />
+						備註：%s<p />
 						
 						<img src='/JavaWeb/images/%s'>
 						
