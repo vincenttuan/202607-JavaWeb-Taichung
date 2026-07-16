@@ -45,7 +45,6 @@ public class IceServlet extends HttpServlet {
 		// QRCode 存放位置
 		String path = getServletContext().getRealPath("/images/" + fileName);
 		
-		System.out.println(path);
 		// 產生 QRCode
 		createQRCode(text, path);
 		
