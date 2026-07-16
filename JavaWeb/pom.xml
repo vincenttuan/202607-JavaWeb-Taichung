@@ -4,6 +4,35 @@
   <artifactId>JavaWeb</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
+  <dependencies>
+  
+  	<!-- Servlet API (Tomcat 11 使用 Jakarta Servlet 6) -->
+	<dependency>
+		<groupId>jakarta.servlet</groupId>
+		<artifactId>jakarta.servlet-api</artifactId>
+		<version>6.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- ZXing QR Code Core -->
+	<dependency>
+		<groupId>com.google.zxing</groupId>
+		<artifactId>core</artifactId>
+		<version>3.5.3</version>
+	</dependency>
+
+
+
+	<!-- ZXing Java Image Support -->
+	<dependency>
+		<groupId>com.google.zxing</groupId>
+		<artifactId>javase</artifactId>
+		<version>3.5.3</version>
+	</dependency>
+		
+  </dependencies>
+  
   <build>
     <plugins>
       <plugin>
