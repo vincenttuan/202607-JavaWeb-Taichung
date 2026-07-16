@@ -65,6 +65,14 @@
 							<input type="radio" name="size" value="L"> 大碗
 						</td>
 					</tr>
+					<tr>
+						<td>🍬 甜度</td>
+						<td>
+							<input type="range" name="sweet" min="0" max="10" value="5" oninput="sweetValue.innerText=this.value" >
+							<span id="sweetValue">5</span>/10
+						</td>
+					</tr>
+					
 				</table>
 				
 			</fieldset>
