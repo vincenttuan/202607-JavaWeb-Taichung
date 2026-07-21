@@ -1,8 +1,10 @@
 package servlet;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Base64;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
@@ -39,21 +41,8 @@ public class IceServlet extends HttpServlet {
 		// QRCode 內容
 		String text = "冰品：%s 大小：%s 甜度：%s 冰量：%s 配料：%s 數量：%s 取餐日期：%s 壽星：%s 備註：%s"
 						.formatted(iceName, size, sweet, ice, Arrays.toString(toppings), qty, pickupDate, birthday, memo);
-		// QRCode 檔名
-		String fileName = "ice_qrcode.png";
 		
-		// QRCode 存放位置
-		String path = getServletContext().getRealPath("/images/" + fileName);
-		
-		// 產生 QRCode
-		createQRCode(text, path);
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String qrCodeBase64 = createQRCodeBase64(text);
 		
 		// 訂單內容
 		String html = """
@@ -73,24 +62,35 @@ public class IceServlet extends HttpServlet {
 						壽星：%s<br />
 						備註：%s<p />
 						
-						<img src='/JavaWeb/images/%s'>
+						<img src='%s'>
 						
 					</body>
 				</html>
-				""".formatted(iceName, size, sweet, ice, Arrays.toString(toppings), qty, pickupDate, birthday, memo, fileName);
+				""".formatted(iceName, size, sweet, ice, Arrays.toString(toppings), qty, pickupDate, birthday, memo, qrCodeBase64);
 		
 		
 		resp.getWriter().print(html);
 	}
 	
-	// 使用 ZXing 產生 QRCode
-	private void createQRCode(String text, String path) {
-		try {
-			BitMatrix matrix = new QRCodeWriter().encode(text, BarcodeFormat.QR_CODE, 300, 300);
-			MatrixToImageWriter.writeToPath(matrix, "PNG", new File(path).toPath());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	private String createQRCodeBase64(String text) {
+	    try {
+
+	        BitMatrix matrix = new QRCodeWriter().encode(text, BarcodeFormat.QR_CODE, 300, 300);
+
+	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+	        MatrixToImageWriter.writeToStream(matrix, "PNG", baos);
+
+	        String base64 = Base64.getEncoder()
+	                              .encodeToString(baos.toByteArray());
+
+	        return "data:image/png;base64," + base64;
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return "";
 	}
 	
 }
