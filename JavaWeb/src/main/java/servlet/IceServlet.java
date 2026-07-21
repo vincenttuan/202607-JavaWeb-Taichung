@@ -90,7 +90,7 @@ public class IceServlet extends HttpServlet {
 		// ===========================
 		String qrCodeBase64 = createQRCodeBase64(text);
 		
-		// 準備要給 jsp 的參數資料
+		// 1.準備要給 jsp 的參數資料
 		req.setAttribute("iceName", iceName);
 		req.setAttribute("size", size);
 		req.setAttribute("sweet", sweet);
@@ -103,7 +103,10 @@ public class IceServlet extends HttpServlet {
 		req.setAttribute("memo", memo);
 		req.setAttribute("qrCodeBase64", qrCodeBase64);
 		
+		// 2.建立一個分派器用來告知要傳到哪一個 jsp 檔案
 		
+		
+		// 3.forward 傳送
 		
 		
 	}
