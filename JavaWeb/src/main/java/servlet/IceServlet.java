@@ -89,59 +89,9 @@ public class IceServlet extends HttpServlet {
 		// 產生 Base64 QRCode
 		// ===========================
 		String qrCodeBase64 = createQRCodeBase64(text);
-
-		// ===========================
-		// 回傳 HTML
-		// ===========================
-		String html = """
-				<html>
-					<head>
-						<meta charset="UTF-8">
-						<title>胖胖冰果店訂單</title>
-						<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-						<meta http-equiv="Pragma" content="no-cache">
-						<meta http-equiv="Expires" content="0">
-					</head>
-
-					<body>
-
-						<h1>胖胖冰果店訂單</h1>
-
-						冰品：%s<br>
-						大小：%s<br>
-						甜度：%s<br>
-						冰量：%s<br>
-						配料：%s<br>
-						碗色：<input type="color" name="bowlColor" value="%s"><br>
-						數量：%s<br>
-						取餐日期：%s<br>
-						壽星：%s<br>
-						備註：%s
-
-						<p>
-
-						<h3>訂單 QRCode</h3>
-
-						<img src="%s" width="250">
-
-					</body>
-
-				</html>
-				""".formatted(
-						iceName,
-						size,
-						sweet,
-						ice,
-						Arrays.toString(toppings),
-						bowlColor,
-						qty,
-						pickupDate,
-						birthday,
-						memo,
-						qrCodeBase64);
-
-		// 將 HTML 回傳給瀏覽器
-		resp.getWriter().print(html);
+		
+		
+		
 	}
 
 	/**
