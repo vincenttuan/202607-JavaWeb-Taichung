@@ -52,7 +52,8 @@ public class IceServlet extends HttpServlet {
 		String[] toppings = req.getParameterValues("topping");
 		String qty = req.getParameter("qty");
 		String pickupDate = req.getParameter("pickupDate");
-
+		String bowlColor = req.getParameter("bowlColor");
+		
 		// checkbox 若沒勾選會回傳 null
 		String birthday = req.getParameter("birthday") == null ? "否" : "壽星";
 
@@ -67,6 +68,7 @@ public class IceServlet extends HttpServlet {
 				甜度：%s
 				冰量：%s
 				配料：%s
+				碗色：%s
 				數量：%s
 				取餐日期：%s
 				壽星：%s
@@ -77,6 +79,7 @@ public class IceServlet extends HttpServlet {
 						sweet,
 						ice,
 						Arrays.toString(toppings),
+						bowlColor,
 						qty,
 						pickupDate,
 						birthday,
