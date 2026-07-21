@@ -3,9 +3,9 @@
 
 <%
 // 接收來自 servlet 的資料
-String h = (String)request.getAttribute("h");
-String w = (String)request.getAttribute("w");
-String bmi = (String)request.getAttribute("bmi");
+String h      = (String)request.getAttribute("h");
+String w      = (String)request.getAttribute("w");
+String bmi    = (String)request.getAttribute("bmi");
 String result = (String)request.getAttribute("result");
 %>    
 <!DOCTYPE html>
