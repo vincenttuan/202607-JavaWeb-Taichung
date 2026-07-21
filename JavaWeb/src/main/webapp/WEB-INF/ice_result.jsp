@@ -3,16 +3,16 @@
 <!DOCTYPE html>
 <%
 	// 接收來自 servlet 的資料
-	String iceName = (String)request.getAttribute("iceName");
-	String size = (String)request.getAttribute("size");
-	String sweet = (String)request.getAttribute("sweet");
-	String ice = (String)request.getAttribute("ice");
-	String toppings = (String)request.getAttribute("toppings");
-	String bowlColor = (String)request.getAttribute("bowlColor");
-	String qty = (String)request.getAttribute("qty");
-	String pickupDate = (String)request.getAttribute("pickupDate");
-	String birthday = (String)request.getAttribute("birthday");
-	String memo = (String)request.getAttribute("memo");
+	String iceName      = (String)request.getAttribute("iceName");
+	String size         = (String)request.getAttribute("size");
+	String sweet        = (String)request.getAttribute("sweet");
+	String ice          = (String)request.getAttribute("ice");
+	String toppings     = (String)request.getAttribute("toppings");
+	String bowlColor    = (String)request.getAttribute("bowlColor");
+	String qty          = (String)request.getAttribute("qty");
+	String pickupDate   = (String)request.getAttribute("pickupDate");
+	String birthday     = (String)request.getAttribute("birthday");
+	String memo         = (String)request.getAttribute("memo");
 	String qrCodeBase64 = (String)request.getAttribute("qrCodeBase64");
 %>
 <html>
