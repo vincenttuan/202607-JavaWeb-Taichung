@@ -68,7 +68,7 @@ public class IceServlet extends HttpServlet {
 				甜度：%s
 				冰量：%s
 				配料：%s
-				碗色：%s 
+				碗色：%s
 				數量：%s
 				取餐日期：%s
 				壽星：%s
