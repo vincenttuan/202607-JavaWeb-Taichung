@@ -90,6 +90,20 @@ public class IceServlet extends HttpServlet {
 		// ===========================
 		String qrCodeBase64 = createQRCodeBase64(text);
 		
+		// 準備要給 jsp 的參數資料
+		req.setAttribute("iceName", iceName);
+		req.setAttribute("size", size);
+		req.setAttribute("sweet", sweet);
+		req.setAttribute("ice", ice);
+		req.setAttribute("toppings", Arrays.toString(toppings)); // 將陣列轉成字串
+		req.setAttribute("bowlColor", bowlColor);
+		req.setAttribute("qty", qty);
+		req.setAttribute("pickupDate", pickupDate);
+		req.setAttribute("birthday", birthday);
+		req.setAttribute("memo", memo);
+		req.setAttribute("qrCodeBase64", qrCodeBase64);
+		
+		
 		
 		
 	}
