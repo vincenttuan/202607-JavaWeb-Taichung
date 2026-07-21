@@ -98,6 +98,9 @@ public class IceServlet extends HttpServlet {
 					<head>
 						<meta charset="UTF-8">
 						<title>胖胖冰果店訂單</title>
+						<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+						<meta http-equiv="Pragma" content="no-cache">
+						<meta http-equiv="Expires" content="0">
 					</head>
 
 					<body>
