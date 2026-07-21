@@ -109,6 +109,7 @@ public class IceServlet extends HttpServlet {
 						甜度：%s<br>
 						冰量：%s<br>
 						配料：%s<br>
+						碗色：%s<br>
 						數量：%s<br>
 						取餐日期：%s<br>
 						壽星：%s<br>
@@ -129,6 +130,7 @@ public class IceServlet extends HttpServlet {
 						sweet,
 						ice,
 						Arrays.toString(toppings),
+						bowlColor,
 						qty,
 						pickupDate,
 						birthday,
