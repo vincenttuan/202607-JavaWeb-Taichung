@@ -13,6 +13,7 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -103,11 +104,11 @@ public class IceServlet extends HttpServlet {
 		req.setAttribute("memo", memo);
 		req.setAttribute("qrCodeBase64", qrCodeBase64);
 		
-		// 2.建立一個分派器用來告知要傳到哪一個 jsp 檔案
-		
+		// 2.建立一個"請求分派器"用來告知要傳到哪一個 jsp 檔案
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/ice_result.jsp");
 		
 		// 3.forward 傳送
-		
+		rd.forward(req, resp);
 		
 	}
 
