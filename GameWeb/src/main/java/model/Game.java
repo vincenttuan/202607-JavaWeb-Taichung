@@ -24,5 +24,4 @@ public class Game {
 		throw new RuntimeException("資料錯誤");
 	}
 	
-	
 }
