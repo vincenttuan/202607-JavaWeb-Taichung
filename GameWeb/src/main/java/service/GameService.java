@@ -127,6 +127,12 @@ public class GameService {
 	/*
 	 * 計算平手次數
 	 * */
+	public long getDraws(String username) {
+		return getRecords(username).stream().filter(record -> "平手".equals(record.getResult())).count();
+	}
+	
+	
+	/*
 	public int getDraws(String username) {
 		int count = 0;
 		
@@ -141,6 +147,7 @@ public class GameService {
 		
 		return count;
 	}
+	*/
 	
 	/*
 	 * 計算勝率
