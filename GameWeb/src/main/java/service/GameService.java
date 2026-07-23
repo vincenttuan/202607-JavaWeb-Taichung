@@ -124,6 +124,23 @@ public class GameService {
 		return count;
 	}
 	
+	/*
+	 * 計算平手次數
+	 * */
+	public int getDraws(String username) {
+		int count = 0;
+		
+		// 取得該玩家的所有紀錄
+		List<Record> records = getRecords(username);
+		
+		for(Record record : records) {
+			if("平手".equals(record.getResult())) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
 	
 	
 }
