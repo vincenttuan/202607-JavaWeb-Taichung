@@ -1,10 +1,12 @@
 package service;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import model.Record;
 
 /**
  * 負責項目:
@@ -44,6 +46,20 @@ public class GameService {
 		// 判斷勝負
 		String result = judge(player, server);
 		
+		// 建立本局紀錄
+		Record record = new Record(player, server, result);
+		
+		/*
+		 * 第一次出現這個 username 時, 要先建立一個新的 ArrayList
+		 * */
+		if(!recordMap.containsKey(username)) {
+			recordMap.put(username, new ArrayList<>());
+		}
+		
+		// 將本局紀錄加入到該玩家的 List
+		recordMap.get(username).add(record);
+		
+		return record;
 	}
 	
 	// 判斷勝負
