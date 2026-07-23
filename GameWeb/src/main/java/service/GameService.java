@@ -62,7 +62,9 @@ public class GameService {
 		return record;
 	}
 	
-	// 判斷勝負
+	/* 
+	 * 判斷勝負 
+	 * */
 	public String judge(int player, int server) {
 		
 		// result 只會有 0, 1, 2
@@ -79,6 +81,48 @@ public class GameService {
 		
 	}
 	
+	/*
+	 * 取得指定玩家的所有紀錄
+	 * */
+	public List<Record> getRecords(String username) {
+		return recordMap.get(username);
+	}
+	
+	/*
+	 * 計算玩家的獲勝次數
+	 * */
+	public int getPlayerWins(String username) {
+		int count = 0;
+		
+		// 取得該玩家的所有紀錄
+		List<Record> records = getRecords(username);
+		
+		for(Record record : records) {
+			if("玩家贏".equals(record.getResult())) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
+	
+	/*
+	 * 計算 Server 獲勝次數
+	 * */
+	public int getServerWins(String username) {
+		int count = 0;
+		
+		// 取得該玩家的所有紀錄
+		List<Record> records = getRecords(username);
+		
+		for(Record record : records) {
+			if("電腦贏".equals(record.getResult())) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
 	
 	
 	
