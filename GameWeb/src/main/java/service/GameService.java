@@ -1,5 +1,69 @@
 package service;
 
-public class GameService {
+import java.security.SecureRandom;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
+/**
+ * 負責項目:
+ * 1. Server 隨機出拳
+ * 2. 判斷勝負
+ * 3. 將記錄放到集合 Map<String, List<Record>> 中
+ * 4. 計算勝場與勝率
+ * */
+public class GameService {
+	
+	/*
+	 * Key: username
+	 * Value: 該玩家所有的猜拳紀錄
+	 * 
+	 * 例如:
+	 * +-----+--------------------------+
+	 * | Key |         Value            |
+	 * +-----+--------------------------+
+	 * | Tom | [Record, Record, Record] |
+	 * | Joy | [Record, Record]         |
+	 * +-----+--------------------------+
+	 * */
+	private Map<String, List<Record>> recordMap = new LinkedHashMap<>();
+	
+	private Random random = new SecureRandom(); // SecureRandom 具有不可預測
+	
+	/*
+	 * 進行一場拳賽 play
+	 * username: 玩家名
+	 * player: 玩家所出的拳
+	 * */
+	public Record play(String username, int player) {
+		
+		// Server 隨機產生 0, 1, 2
+		int server = random.nextInt(3); // 電腦隨機所出的拳
+		
+		// 判斷勝負
+		String result = judge(player, server);
+		
+	}
+	
+	// 判斷勝負
+	public String judge(int player, int server) {
+		
+		// result 只會有 0, 1, 2
+		int result = (player - server + 3) % 3;
+		
+		switch (result) {
+			case 1: 
+				return "玩家贏"; // 1
+			case 2: 
+				return "電腦贏"; // 2
+			default:
+				return "平手"; // 0
+		}
+		
+	}
+	
+	
+	
+	
 }
