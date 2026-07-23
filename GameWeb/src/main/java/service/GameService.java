@@ -142,5 +142,12 @@ public class GameService {
 		return count;
 	}
 	
+	/*
+	 * 計算勝率
+	 * */
+	public double getRate(int winCount, int total) {
+		return winCount * 100.0 / total;
+	}
+	
 	
 }
