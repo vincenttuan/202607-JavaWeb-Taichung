@@ -91,6 +91,13 @@ public class GameService {
 	/*
 	 * 計算玩家的獲勝次數
 	 * */
+	public long getPlayerWins(String username) {
+		return getRecords(username).stream()
+								   .filter(record -> "玩家贏".equals(record.getResult()))
+								   .count();
+	}
+	
+	/*
 	public int getPlayerWins(String username) {
 		int count = 0;
 		
@@ -105,6 +112,7 @@ public class GameService {
 		
 		return count;
 	}
+	*/
 	
 	/*
 	 * 計算 Server 獲勝次數
