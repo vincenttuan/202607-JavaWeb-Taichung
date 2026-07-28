@@ -14,18 +14,18 @@ public class TestMultiGameService {
 	
 	@Test
 	public void test() {
-		// 多回合
+		// 1. 初始化遊戲物件
 		GameService service = new GameService();
 		String username = "andrew";
 		
-		// 模擬多回合猜拳(五回合)
+		// 2.模擬多回合猜拳(五回合)
 		service.play(username, 0);
 		service.play(username, 1);
 		service.play(username, 2);
 		service.play(username, 0);
 		service.play(username, 1);
 		
-		// 檢驗該玩家的歷史紀錄總數是否為 5 筆
+		// 3.檢驗該玩家的歷史紀錄總數是否為 5 筆
 		List<Record> records = service.getRecords(username);
 		/*
 		if(records == null) {
@@ -41,7 +41,16 @@ public class TestMultiGameService {
 		*/
 		assertEquals(5, records.size(), "總回合樹應該要是 5 回合");
 		
+		// 4. 驗證各項統計數據的總和是否等於總回合數
+		long playerWins = service.getPlayerWins(username);
+		long serverWins = service.getServerWins(username);
+		long draws = service.getDraws(username);
+		assertEquals(5, playerWins + serverWins + draws, "玩家贏+電腦贏+平手的總和必須等於總回和數 5");
+		
+		
 		System.out.println("檢驗通過");
+		
+		
 		
 	}
 	
