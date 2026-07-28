@@ -39,6 +39,10 @@ public class GameService {
 	 * player: 玩家所出的拳
 	 * */
 	public Record play(String username, int player) {
+		// 檢查 player
+		if(player < 0 || player > 2) {
+			throw new RuntimeException("玩家猜拳的資料輸入錯誤(只能是 0, 1, 2), player=" + player);
+		}
 		
 		// Server 隨機產生 0, 1, 2
 		int server = random.nextInt(3); // 電腦隨機所出的拳
