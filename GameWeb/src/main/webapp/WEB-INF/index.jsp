@@ -12,14 +12,13 @@
 		<form method="post" action="/GameWeb/game">
 			<fieldset>
 				<legend>猜拳遊戲</legend>
-				使用者: <input type="text" name="username" value="Tom" placeholder="請輸入名字" required><p />
-				猜拳: <input type="radio" name="player" value="0">石頭
-					 <input type="radio" name="player" value="1">布
-					 <input type="radio" name="player" value="2">剪刀<p />
+				👩使用者: <input type="text" name="username" value="Tom" placeholder="請輸入名字" required><p />
+				猜拳:<input type="radio" name="player" value="2"><span style="font-size: 100px">✌</span>
+					<input type="radio" name="player" value="0"><span style="font-size: 100px">✊</span>
+				    <input type="radio" name="player" value="1"><span style="font-size: 100px">🤚</span><p />
 				<button type="submit">猜拳</button>
 			</fieldset>
 		</form>
-		
 		
 	</body>
 </html>
