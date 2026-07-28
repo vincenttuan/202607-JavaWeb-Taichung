@@ -48,6 +48,12 @@ public class TestMultiGameService {
 		assertEquals(5, playerWins + serverWins + draws, "玩家贏+電腦贏+平手的總和必須等於總回和數 5");
 		
 		
+		// 5. 驗證勝率計算是否正確 ?
+		double winRate = service.getRate((int)playerWins, 5);
+		System.out.println(records.stream().map(Record::getResult).toList());
+		
+		System.out.println(winRate);
+		
 		System.out.println("檢驗通過");
 		
 		
