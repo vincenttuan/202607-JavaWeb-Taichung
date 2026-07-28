@@ -29,5 +29,11 @@ public class Record {
 	public String getResult() {
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "Record [player=" + player + ", server=" + server + ", result=" + result + "]";
+	}
+
 	
 }
