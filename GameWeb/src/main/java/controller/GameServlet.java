@@ -58,7 +58,7 @@ public class GameServlet extends HttpServlet {
 		req.setAttribute("playerWins", playerWins); // 累積勝場
 		req.setAttribute("serverWins", serverWins); // 累積敗場
 		req.setAttribute("draws", draws); // 累積平手
-		req.setAttribute("winRate", String.format("%.2f", winRate)); // 累積平手
+		req.setAttribute("winRate", String.format("%.2f", winRate)); // 累積勝率
 		req.setAttribute("history", service.getRecords(username)); // 歷史交手紀錄
 		
 		
