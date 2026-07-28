@@ -51,8 +51,8 @@ public class TestMultiGameService {
 		// 5. 驗證勝率計算是否正確 ?
 		double winRate = service.getRate((int)playerWins, 5);
 		System.out.println(records.stream().map(Record::getResult).toList());
-		
-		System.out.println(winRate);
+		System.out.printf("%.1f %% %n", winRate);
+		System.out.printf("%.1f ％ %n", winRate);
 		
 		System.out.println("檢驗通過");
 		
