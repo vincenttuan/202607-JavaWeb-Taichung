@@ -35,6 +35,10 @@ public class GameServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		// 直接重導到遊戲結果頁
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/result.jsp");
+		rd.forward(req, resp);
+		
 	}
 	
 }
