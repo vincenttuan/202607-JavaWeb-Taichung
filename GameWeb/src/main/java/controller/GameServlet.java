@@ -1,5 +1,40 @@
 package controller;
 
-public class GameServlet {
+import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import service.GameService;
+
+/**
+ * GameController
+ * 
+ * doGet() 直接呈現遊戲首頁
+ * doPost() 接收玩家所輸入的遊戲資訊並回傳統計結果
+ * 
+ * */
+
+@WebServlet("/game")
+public class GameServlet extends HttpServlet {
+	
+	private static final GameService service = new GameService();
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		// 直接重導到遊戲首頁
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/index.jsp");
+		rd.forward(req, resp);
+		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+	}
+	
 }
