@@ -44,6 +44,9 @@ public class GameService {
 			throw new RuntimeException("玩家猜拳的資料輸入錯誤(只能是 0, 1, 2), player=" + player);
 		}
 		
+		//player = Math.abs(player);
+		//player = player % 3;
+		
 		// Server 隨機產生 0, 1, 2
 		int server = random.nextInt(3); // 電腦隨機所出的拳
 		
