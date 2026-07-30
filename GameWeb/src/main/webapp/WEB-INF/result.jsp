@@ -12,12 +12,12 @@
 		<div class="pure-form">
 			<fieldset>
 				<legend>遊戲統計結果</legend>
-				玩家: <%=request.getAttribute("username") %> <p />
-				本局結果: <%=request.getAttribute("currentRecord") %> <p />
-				累積勝場: <%=request.getAttribute("playerWins") %> <p /> 
-				累積敗場: <%=request.getAttribute("serverWins") %> <p />
-				累積平手: <%=request.getAttribute("draws") %> <p />
-				累積勝率: <%=request.getAttribute("winRate") %> <p />
+				玩家: ${username} <p />
+				本局結果: ${currentRecord} <p />
+				累積勝場: ${playerWins} <p /> 
+				累積敗場: ${serverWins} <p />
+				累積平手: ${draws} <p />
+				累積勝率: ${winRate} <p />
 				歷史交手紀錄
 				
 			</fieldset>
