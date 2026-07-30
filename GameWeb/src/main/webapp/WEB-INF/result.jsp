@@ -21,7 +21,6 @@
 		}
 		*/
 		// Java 14(含) 以後的寫法
-		
 		String name = switch(player) {
 			case 0 -> "石頭";
 			case 1 -> "布";
