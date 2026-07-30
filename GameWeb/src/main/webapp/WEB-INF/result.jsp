@@ -2,19 +2,26 @@
     pageEncoding="UTF-8"%>
     
 <%!
+	int x = 10; // 物件變數
 	class Ball {
 	
 	
 	}
 
-	int getNumber() {
-		return 10;
+	String getGameName(int player) {
+		switch(player) {
+			case 0: return "石頭";
+			case 1: return "布";
+			case 2: return "剪刀";
+			default:
+				return "";
+		}
 	}
 
 %>    
 <%-- 我是註解 --%>
 <%
-	int x = 10;
+	int x = 10; // 區域變數
 	if (x % 2 == 0) {
 		// ...
 	}
