@@ -7,8 +7,11 @@
 	
 	
 	}
-
+	
+	
 	String getGameName(int player) {
+		/*
+		// Java 14 以前的寫法
 		switch(player) {
 			case 0: return "石頭";
 			case 1: return "布";
@@ -16,6 +19,16 @@
 			default:
 				return "";
 		}
+		*/
+		// Java 14(含) 以後的寫法
+		
+		String name = switch(player) {
+			case 0 -> "石頭";
+			case 1 -> "布";
+			case 2 -> "剪刀";
+			default -> "";
+		};
+		return name;
 	}
 
 %>    
