@@ -1,5 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%!
+	class Ball {
+	
+	
+	}
+
+	int getNumber() {
+		return 10;
+	}
+
+%>    
+<%-- 我是註解 --%>
+<%
+	int x = 10;
+	if (x % 2 == 0) {
+		// ...
+	}
+%>
 <!DOCTYPE html>
 <html>
 	<head>
