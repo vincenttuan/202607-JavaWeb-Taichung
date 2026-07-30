@@ -63,8 +63,23 @@
 				累積敗場: ${serverWins} <p />
 				累積平手: ${draws} <p />
 				累積勝率: ${winRate} <p />
-				歷史交手紀錄
-				
+				歷史交手紀錄: 
+				<table class="pure-table pure-table-bordered">
+					<thead>
+						<tr>
+							<th>玩家</th><th>電腦</th><th>結果</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="record" items="${records}">
+							<tr>
+								<td>${record.player}</td>
+								<td>${record.server}</td>
+								<td>${record.result}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</fieldset>
 		
 		</div>
