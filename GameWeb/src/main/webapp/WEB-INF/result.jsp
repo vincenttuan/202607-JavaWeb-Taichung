@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 核心庫 -->    
+<%@ taglib uri="jakarta.tags.core" prefix="c" %> 
     
 <%!
 	int x = 10; // 物件變數
