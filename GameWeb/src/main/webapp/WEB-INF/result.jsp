@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!-- 核心庫 -->    
 <%@ taglib uri="jakarta.tags.core" prefix="c" %> 
-    
+<%@ taglib uri="/WEB-INF/game.tld" prefix="game" %>    
 <%!
 	int x = 10; // 物件變數
 	class Ball {
@@ -55,8 +55,8 @@
 				玩家: ${username} <p />
 				本局結果: ${currentRecord} <p />
 				<ul>
-					<li>玩家: ${currentRecord.player}</li>
-					<li>電腦: ${currentRecord.server}</li>
+					<li>玩家: ${currentRecord.player} ${game:getName(currentRecord.player)}</li>
+					<li>電腦: ${currentRecord.server} ${game:getName(currentRecord.server)}</li>
 					<li>結果: ${currentRecord.result}</li>
 				</ul>
 				累積勝場: ${playerWins} <p /> 
@@ -73,8 +73,8 @@
 					<tbody>
 						<c:forEach var="record" items="${records}">
 							<tr>
-								<td>${record.player}</td>
-								<td>${record.server}</td>
+								<td>${record.player} ${game:getName(record.player)}</td>
+								<td>${record.server} ${game:getName(record.server)}</td>
 								<td>${record.result}</td>
 							</tr>
 						</c:forEach>
