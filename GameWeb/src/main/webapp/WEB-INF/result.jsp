@@ -14,11 +14,11 @@
 				<legend>遊戲統計結果</legend>
 				玩家: ${username} <p />
 				本局結果: ${currentRecord} <p />
-				<ol>
+				<ul>
 					<li>玩家: ${currentRecord.player}</li>
 					<li>電腦: ${currentRecord.server}</li>
 					<li>結果: ${currentRecord.result}</li>
-				</ol>
+				</ul>
 				累積勝場: ${playerWins} <p /> 
 				累積敗場: ${serverWins} <p />
 				累積平手: ${draws} <p />
