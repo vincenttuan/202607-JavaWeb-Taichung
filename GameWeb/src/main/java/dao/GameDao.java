@@ -91,7 +91,7 @@ public class GameDao {
 			try(ResultSet rs = pstmt.executeQuery()) { // 執行查詢並把結果回給 ResultSet
 				
 				/*
-				 * resultSet.next()：
+				 * rs.next()：
 				 *
 				 * 如果還有下一筆資料，就回傳 true。
 				 * 每執行一次，游標會移到下一列。
