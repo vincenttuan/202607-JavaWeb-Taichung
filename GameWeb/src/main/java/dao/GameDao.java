@@ -68,6 +68,7 @@ public class GameDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			throw new RuntimeException("新增失敗, 原因:" + e.getMessage());
 		}
 		
 	}
