@@ -90,6 +90,12 @@ public class GameDao {
 			
 			try(ResultSet rs = pstmt.executeQuery()) { // 執行查詢並把結果回給 ResultSet
 				
+				/*
+				 * resultSet.next()：
+				 *
+				 * 如果還有下一筆資料，就回傳 true。
+				 * 每執行一次，游標會移到下一列。
+				 */
 				while(rs.next()) {
 					// 將資料列中每一個欄位內容取出
 					int player = rs.getInt("player");
