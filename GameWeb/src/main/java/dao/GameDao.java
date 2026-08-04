@@ -1,5 +1,9 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  * GameDao 負責存取 game_record 資料表
  * 
@@ -36,7 +40,10 @@ public class GameDao {
 	// 密碼
 	private static final String PASSWORD = "12345678";
 	
-	
+	// 建立資料庫連線
+	private Connection getConnection() throws SQLException {
+		return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+	}
 	
 	
 	
