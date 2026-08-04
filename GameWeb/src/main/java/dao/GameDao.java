@@ -2,7 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import model.Record;
 
 /**
  * GameDao 負責存取 game_record 資料表
@@ -45,7 +48,29 @@ public class GameDao {
 		return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 	}
 	
-	
+	// 新增資料紀錄
+	public void addRecord(String username, Record record) {
+		String sql = """
+				insert into game_record (username, player, server, result) values(?, ?, ?, ?)
+				""";
+		
+		try(Connection conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			// 每一個問號要放的內容
+			pstmt.setString(1, username);
+			pstmt.setInt(2, record.getPlayer());
+			pstmt.setInt(3, record.getServer());
+			pstmt.setString(4, record.getResult());
+			
+			// 執行更新
+			pstmt.executeUpdate(); 
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	
