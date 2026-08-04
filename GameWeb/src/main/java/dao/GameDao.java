@@ -3,7 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Record;
 
@@ -73,7 +76,38 @@ public class GameDao {
 		
 	}
 	
-	
+	// 查詢
+	public List<Record> findRecords(String username) {
+		
+		List<Record> records = new ArrayList<>();
+		
+		String sql = "select player, server, result from game_record where username=? order by id";
+		
+		try(Connection conn = getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, username);
+			
+			try(ResultSet rs = pstmt.executeQuery()) { // 執行查詢並把結果回給 ResultSet
+				
+				while(rs.next()) {
+					// 將資料列中每一個欄位內容取出
+					int player = rs.getInt("player");
+					int server = rs.getInt("server");
+					String result = rs.getString("result");
+					
+					// 建立 record 物件
+					Record record = new Record(player, server, result);
+					
+					// 放到 records 集合中收集起來
+					records.add(record);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return records;
+	}
 	
 	
 	
