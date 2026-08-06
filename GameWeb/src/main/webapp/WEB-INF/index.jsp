@@ -13,7 +13,7 @@
 			<fieldset>
 				<legend>猜拳遊戲</legend>
 				<span style="font-size: 50px">👩</span> 
-				<input type="text" name="username" value="Helen" placeholder="請輸入名字" required><p />
+				<input type="text" name="username" value="" placeholder="請輸入名字" required><p />
 				<label>
 					<input type="radio" name="player" value="2"><span style="font-size: 100px">✌</span>
 				</label>

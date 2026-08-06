@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Record;
 import service.GameService;
 
@@ -41,6 +42,11 @@ public class GameServlet extends HttpServlet {
 		// 2. 接收前端參數
 		String username = req.getParameter("username");
 		int player = Integer.parseInt(req.getParameter("player")); // 字串轉數字
+		
+		// 2.1 將 username 存放到 session 變數中
+		// 建立 session 物件
+		HttpSession session = req.getSession();
+		session.setAttribute("username", username);
 		
 		// 3. 呼叫猜拳遊戲並得到本局結果
 		Record currentRecord = service.play(username, player);
