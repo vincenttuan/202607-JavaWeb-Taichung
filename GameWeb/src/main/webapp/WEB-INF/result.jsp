@@ -81,7 +81,7 @@
 					</tbody>
 				</table>
 			</fieldset>
-		
+			<a href="/GameWeb/game" class="pure-button pure-button-primary">回首頁</a>
 		</div>
 		
 	</body>
