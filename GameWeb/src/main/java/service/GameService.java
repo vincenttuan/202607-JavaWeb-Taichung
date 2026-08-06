@@ -6,30 +6,26 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import dao.GameDao;
 import model.Record;
 
 /**
  * 負責項目:
  * 1. Server 隨機出拳
  * 2. 判斷勝負
- * 3. 將記錄放到集合 Map<String, List<Record>> 中
+ * 3. 呼叫 GameDao 將記錄存放到 MySQL
  * 4. 計算勝場與勝率
+ * 
+ * MVC 分層
+ * 網頁請求 request --> GameServlet --> GameService --> GameDao --> MySQL 
+ * 
+ * GameService 不直接撰寫 SQL, 所有的資料庫操作都交給 GameDao
  * */
 public class GameService {
 	
-	/*
-	 * Key: username
-	 * Value: 該玩家所有的猜拳紀錄
-	 * 
-	 * 例如:
-	 * +-----+--------------------------+
-	 * | Key |         Value            |
-	 * +-----+--------------------------+
-	 * | Tom | [Record, Record, Record] |
-	 * | Joy | [Record, Record]         |
-	 * +-----+--------------------------+
-	 * */
-	private Map<String, List<Record>> recordMap = new LinkedHashMap<>();
+	// GameDao 負責操作 MySQL
+	private GameDao gameDao = new GameDao();
 	
 	private Random random = new SecureRandom(); // SecureRandom 具有不可預測
 	
@@ -56,15 +52,8 @@ public class GameService {
 		// 建立本局紀錄
 		Record record = new Record(player, server, result);
 		
-		/*
-		 * 第一次出現這個 username 時, 要先建立一個新的 ArrayList
-		 * */
-		if(!recordMap.containsKey(username)) {
-			recordMap.put(username, new ArrayList<>());
-		}
-		
-		// 將本局紀錄加入到該玩家的 List
-		recordMap.get(username).add(record);
+		// 存入資料庫
+		gameDao.addRecord(username, record);
 		
 		return record;
 	}
