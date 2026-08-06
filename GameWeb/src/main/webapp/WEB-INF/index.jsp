@@ -25,6 +25,8 @@
 					<input type="radio" name="player" value="1"><span style="font-size: 100px">🤚</span><p />
 				</label>
 				<button type="submit" class="pure-button pure-button-primary">猜拳</button>
+				<a href="/GameWeb/invalidate" class="pure-button">Session 失效</a>
+				
 			</fieldset>
 		</form>
 		
