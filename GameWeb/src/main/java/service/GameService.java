@@ -81,7 +81,8 @@ public class GameService {
 	 * 取得指定玩家的所有紀錄
 	 * */
 	public List<Record> getRecords(String username) {
-		return recordMap.get(username);
+		// 從資料庫中查詢所有紀錄
+		return gameDao.findRecords(username);
 	}
 	
 	/*
