@@ -24,6 +24,15 @@ import model.Record;
 
 public class GameDao {
 	
+	static {
+		// 建立 MySQL Driver
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * MySQL 連線資訊
 	 * 資料庫位置與連接阜: jdbc:mysql://localhost:3306/game_db
