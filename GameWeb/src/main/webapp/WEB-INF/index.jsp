@@ -14,6 +14,7 @@
 				<legend>猜拳遊戲</legend>
 				<span style="font-size: 50px">👩</span> 
 				<input type="text" name="username" value="${sessionScope.username}" placeholder="請輸入名字" required><p />
+				${pageContext.session.id}<p />
 				<label>
 					<input type="radio" name="player" value="2"><span style="font-size: 100px">✌</span>
 				</label>
