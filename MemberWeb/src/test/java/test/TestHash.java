@@ -1,10 +1,13 @@
 package test;
 
+import org.junit.jupiter.api.Test;
+
 import model.util.SHA256Util;
 
 public class TestHash {
-
-	public static void main(String[] args) {
+	
+	@Test
+	public void test() {
 		// 原始密碼
 		String password = "1234";
 		// 鹽
@@ -15,7 +18,7 @@ public class TestHash {
 		System.out.printf("原始密碼: %s%n", password);
 		System.out.printf("鹽: %s%n", salt);
 		System.out.printf("加鹽版哈希: %s%n", hash);
-
+		
 	}
 
 }
