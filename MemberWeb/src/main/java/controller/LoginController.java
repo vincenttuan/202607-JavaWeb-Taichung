@@ -25,12 +25,16 @@ public class LoginController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 編碼
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
 		
+		// 取得表單資料
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		
+		// 取得鹽與哈希
 		String salt = SHA256Util.generateSalt();
 		String hash = SHA256Util.hash(password, salt);
 		
