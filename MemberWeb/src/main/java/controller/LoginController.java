@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.util.SHA256Util;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
@@ -19,6 +20,28 @@ public class LoginController extends HttpServlet {
 		//rd.forward(req, resp);
 		
 		req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
+		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;chatset=UTF-8");
+		
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String salt = SHA256Util.generateSalt();
+		String hash = SHA256Util.hash(password, salt);
+		
+		String html = """
+					username: %s<p/>
+					password: %s<p/>
+					salt: %s<p/>
+					hash: %s<p/>
+				""".formatted(username, password, salt, hash);
+		
+		resp.getWriter().print(html);
 		
 	}
 	
