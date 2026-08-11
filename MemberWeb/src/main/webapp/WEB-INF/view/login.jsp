@@ -20,7 +20,7 @@
 			<input type="number" id="code" name="code" placeholder="請輸入認證碼" />
 			<img src="/MemberWeb/code" valign="middle" alt="看到我表示目前沒有認證碼" title="我是認證碼"><p />
 			
-			<button type="submit" class="pure-button pure-button=primary">登入</button>
+			<button type="submit" class="pure-button pure-button-primary">登入</button>
 		</form>
 		
 	</body>
