@@ -11,7 +11,17 @@
 	
 	<body class="container">
 		
+		<h2>會員登入</h2>
 		
+		<form class="pure-form" method="post" action="/MemberWeb/login">
+			帳號：<input type="text" id="username" name="username" placeholder="請輸入帳號" required /><p />
+			密碼：<input type="password" id="password" name="password" placeholder="請輸入密碼" required /><p />
+			
+			<input type="number" id="code" name="code" placeholder="請輸入認證碼" />
+			<img src="/MemberWeb/code" valign="middle" alt="看到我表示目前沒有認證碼" title="我是認證碼"><p />
+			
+			<button type="submit" class="pure-button pure-button=primary">登入</button>
+		</form>
 		
 	</body>
 	
