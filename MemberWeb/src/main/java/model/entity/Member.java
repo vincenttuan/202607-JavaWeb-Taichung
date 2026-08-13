@@ -10,7 +10,9 @@ import lombok.Data;
 	default character set utf8mb4
 	collate utf8mb4_unicode_ci;
 	
-   -- 建立資料表 --	
+   -- 建立資料表 --
+    use shopping;
+    	
 	create table if not exists member (
 		id int primary key auto_increment,
     	username varchar(50) unique not null,
