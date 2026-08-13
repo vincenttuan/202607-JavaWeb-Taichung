@@ -5,7 +5,7 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * -- 建立資料庫 --
+   -- 建立資料庫 --
 	create database if not exists shopping
 	default character set utf8mb4
 	collate utf8mb4_unicode_ci;
