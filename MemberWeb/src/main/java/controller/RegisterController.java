@@ -51,7 +51,12 @@ public class RegisterController extends HttpServlet {
 		resp.getWriter().print(html);
 		
 		// 儲存
-		memberDao.register(username, email, role, salt, hash);
+		try {
+			memberDao.register(username, email, role, salt, hash);
+			resp.getWriter().print("儲存成功");
+		} catch (RuntimeException e) {
+			resp.getWriter().print(e.getMessage());
+		}
 		
 		
 	}
