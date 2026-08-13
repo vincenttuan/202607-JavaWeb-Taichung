@@ -38,7 +38,7 @@ public class DBUtil {
 	private static final String PASSWORD = "12345678";
 	
 	// 建立資料庫連線
-	public Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(URL, USERNAME, PASSWORD);
 	}
 }
