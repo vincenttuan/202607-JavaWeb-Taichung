@@ -18,7 +18,7 @@
 			密碼：<input type="password" id="password" name="password" placeholder="請輸入密碼" required /><p />
 			郵件：<input type="email"    id="email"    name="email"    placeholder="請輸入電子郵件信箱" required /><p />
 			角色：<input type="radio"    id="role"     name="role"     value="USER" checked /> User(使用者)
-				<input type="radio"    id="role"     name="role"     value="ADMIN" /> Admin(管理者)
+				<input type="radio"    id="role"     name="role"     value="ADMIN" /> Admin(管理者)<p />
 			
 			<button type="submit" class="pure-button pure-button-primary">註冊</button>
 			<button type="reset"  class="pure-button">重置</button>
