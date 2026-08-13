@@ -14,7 +14,8 @@ import lombok.Data;
 	create table if not exists member (
 		id int primary key auto_increment,
     	username varchar(50) unique not null,
-    	password varchar(500) not null,
+    	hash varchar(500) not null,
+    	salt varchar(500) not null,
     	email varchar(100) not null,
     	role varchar(50) not null,
     	create_time datetime default current_timestamp
