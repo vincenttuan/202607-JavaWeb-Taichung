@@ -29,5 +29,6 @@
 </style>
 
 <div class="header">
-	
+	<a href="/MemberWeb/login">登入</a>
+	<a href="/MemberWeb/register">註冊</a>
 </div>
