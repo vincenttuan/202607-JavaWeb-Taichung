@@ -7,10 +7,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.dao.MemberDao;
 import model.util.SHA256Util;
 
 @WebServlet("/register")
 public class RegisterController extends HttpServlet {
+	
+	private MemberDao memberDao = new MemberDao();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,6 +49,11 @@ public class RegisterController extends HttpServlet {
 				""".formatted(username, password, email, role, salt, hash);
 		
 		resp.getWriter().print(html);
+		
+		// 儲存
+		memberDao.register(username, email, role, salt, hash);
+		
+		
 	}
 	
 }
