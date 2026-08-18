@@ -18,7 +18,12 @@
 			密碼：<input type="password" id="password" name="password" placeholder="請輸入密碼" required /><p />
 			
 			<input type="number" id="code" name="code" placeholder="請輸入認證碼" />
-			<img id="codeImage" src="/MemberWeb/code" valign="middle" alt="看到我表示目前沒有認證碼" title="我是認證碼"><p />
+			<img id="codeImage" 
+				 src="/MemberWeb/code" 
+				 valign="middle" 
+				 alt="看到我表示目前沒有認證碼" 
+				 title="點擊更新認證碼"
+				 onclick="this.src='/MemberWeb/code?t='+new Date().getTime()"><p />
 			
 			<button type="submit" class="pure-button pure-button-primary">登入</button>
 		</form>
