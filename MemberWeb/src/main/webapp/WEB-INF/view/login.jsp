@@ -23,7 +23,7 @@
 				 valign="middle" 
 				 alt="看到我表示目前沒有認證碼" 
 				 title="點擊更新認證碼"
-				 onmousemove="this.src='/MemberWeb/code?t='+new Date().getTime()"
+				 onclick="this.src='/MemberWeb/code?t='+new Date().getTime()"
 				 style="cursor: pointer;"><p />
 			
 			<button type="submit" class="pure-button pure-button-primary">登入</button>
