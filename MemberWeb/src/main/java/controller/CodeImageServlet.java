@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * 圖形認證碼
@@ -28,7 +29,9 @@ public class CodeImageServlet extends HttpServlet {
 		SecureRandom random = new SecureRandom();
 		String code = "%04d".formatted(random.nextInt(10000)); // 0000~9999
 		
-		//resp.getWriter().print(code);
+		// 2.將 code 存放到 session 變數中
+		HttpSession session = req.getSession();
+		session.setAttribute("code", code);
 		
 		// 3.開始繪圖
 		// 3.1 建立圖檔暫存區
