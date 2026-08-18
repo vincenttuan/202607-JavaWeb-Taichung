@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpSession;
  * 利用 Java2D 圖學技術動態產生認證碼
  * */
 @WebServlet("/code")
-public class CodeImageServlet extends HttpServlet {
+public class CodeImageController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
