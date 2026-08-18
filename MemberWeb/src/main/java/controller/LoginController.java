@@ -1,17 +1,20 @@
 package controller;
 
 import java.io.IOException;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.dao.MemberDao;
+import model.entity.Member;
 import model.util.SHA256Util;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
+	
+	private MemberDao memberDao = new MemberDao();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,6 +49,15 @@ public class LoginController extends HttpServlet {
 				""".formatted(username, password, salt, hash);
 		
 		resp.getWriter().print(html);
+		
+		try {
+			Member member = memberDao.login(username, password);
+			resp.getWriter().print("登入成功, " + member);
+		} catch (Exception e) {
+			resp.getWriter().print(e.getMessage());
+		}
+		
+		
 		
 	}
 	
