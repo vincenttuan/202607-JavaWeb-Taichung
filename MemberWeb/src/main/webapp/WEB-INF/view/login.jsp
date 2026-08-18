@@ -23,7 +23,8 @@
 				 valign="middle" 
 				 alt="看到我表示目前沒有認證碼" 
 				 title="點擊更新認證碼"
-				 onclick="this.src='/MemberWeb/code?t='+new Date().getTime()"><p />
+				 onclick="this.src='/MemberWeb/code?t='+new Date().getTime()"
+				 style="cursor: url('/MemberWeb/my-icon.png'), pointer;"><p />
 			
 			<button type="submit" class="pure-button pure-button-primary">登入</button>
 		</form>
