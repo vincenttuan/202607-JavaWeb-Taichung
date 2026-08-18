@@ -69,7 +69,6 @@ public class LoginController extends HttpServlet {
 			Member member = memberDao.login(username, password);
 			// 登入成功後要將 member 寫入到 session 儲存
 			session.setAttribute("member", member);
-			member
 			resp.getWriter().print("登入成功, " + member);
 		} catch (Exception e) {
 			resp.getWriter().print(e.getMessage());
