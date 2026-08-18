@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.dao.MemberDao;
 import model.entity.Member;
 import model.util.SHA256Util;
@@ -36,6 +37,20 @@ public class LoginController extends HttpServlet {
 		// 取得表單資料
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		String code = req.getParameter("code");
+		
+		// 取得認證碼
+		HttpSession session = req.getSession();
+		String sessionCode = (String)session.getAttribute("code");
+		
+		// 拿到認證碼之後立即清除 session 中的認證碼
+		session.setAttribute("code", null);
+		
+		// 比對認證碼
+		if(!code.equals(sessionCode)) {
+			resp.getWriter().print("認證碼比對失敗");
+			return;
+		}
 		
 		// 取得鹽與哈希
 		String salt = SHA256Util.generateSalt();
