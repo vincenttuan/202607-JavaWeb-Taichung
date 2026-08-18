@@ -39,26 +39,19 @@ public class RegisterController extends HttpServlet {
 		String salt = SHA256Util.generateSalt();
 		String hash = SHA256Util.hash(password, salt);
 		
-		String html = """
-				username = %s<p />
-				password = %s<p />
-				email = %s<p />
-				role = %s<p />
-				salt = %s<p />
-				hash = %s<p />
-				""".formatted(username, password, email, role, salt, hash);
-		
-		resp.getWriter().print(html);
-		
+		String title = "註冊";
+		String message = "註冊成功";
 		// 儲存
 		try {
 			memberDao.register(username, email, role, salt, hash);
-			resp.getWriter().print("儲存成功");
+		
 		} catch (RuntimeException e) {
-			resp.getWriter().print(e.getMessage());
+			message = "註冊失敗, " + e.getMessage();
 		}
 		
-		
+		req.setAttribute("title", title);
+		req.setAttribute("message", message);
+		req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 	}
 	
 }
