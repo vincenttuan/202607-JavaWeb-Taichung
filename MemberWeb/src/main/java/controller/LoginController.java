@@ -52,29 +52,20 @@ public class LoginController extends HttpServlet {
 			return;
 		}
 		
-		// 取得鹽與哈希
-		String salt = SHA256Util.generateSalt();
-		String hash = SHA256Util.hash(password, salt);
-		
-		String html = """
-					username: %s<p/>
-					password: %s<p/>
-					salt: %s<p/>
-					hash: %s<p/>
-				""".formatted(username, password, salt, hash);
-		
-		resp.getWriter().print(html);
+		String title = "登入";
+		String message = "登入成功";
 		
 		try {
 			Member member = memberDao.login(username, password);
 			// 登入成功後要將 member 寫入到 session 儲存
 			session.setAttribute("member", member);
-			resp.getWriter().print("登入成功, " + member);
 		} catch (Exception e) {
-			resp.getWriter().print(e.getMessage());
+			message = "登入失敗: " + e.getMessage();
 		}
 		
-		
+		req.setAttribute("title", title);
+		req.setAttribute("message", message);
+		req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 		
 	}
 	
