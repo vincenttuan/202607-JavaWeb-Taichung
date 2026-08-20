@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.dao.MemberDao;
 import model.util.SHA256Util;
 
 /**
@@ -17,6 +18,8 @@ import model.util.SHA256Util;
  * */
 @WebServlet("/profile")
 public class ProfileController extends HttpServlet {
+	
+	private MemberDao memberDao = new MemberDao();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

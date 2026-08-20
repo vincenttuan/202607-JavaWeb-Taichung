@@ -14,7 +14,8 @@
 		<h2>會員 profile</h2>
 		
 		<form class="pure-form" method="post" action="/MemberWeb/profile">
-			序號：${sessionScope.member.id}<p />
+			序號：${sessionScope.member.id}
+			<input type="hidden" id="id" name="id" value="${sessionScope.member.id}"><p />
 			帳號：${sessionScope.member.username}<p />
 			密碼：<input type="password" id="password" name="password" placeholder="請輸入新密碼" />&nbsp;(不修改密碼毋需填寫)<p />
 			郵件：<input type="email" id="email" name="email" value="${sessionScope.member.email}" placeholder="請輸入電子郵件信箱" required /><p />
