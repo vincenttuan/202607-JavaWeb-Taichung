@@ -18,7 +18,7 @@
 			帳號：${sessionScope.member.username}<p />
 			郵件：<input type="email" id="email" name="email" value="${sessionScope.member.email}" placeholder="請輸入電子郵件信箱" required /><p />
 			角色：${sessionScope.member.role}<p />
-			建立：${sessionScope.member.createTime}<p />
+			建立：${sessionScope.member.createTime}<p /> 
 			<button type="submit" class="pure-button pure-button-primary">修改</button>
 		</form>
 		
