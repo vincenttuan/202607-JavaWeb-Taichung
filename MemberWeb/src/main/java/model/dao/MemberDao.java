@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.entity.Member;
 import model.util.DBUtil;
@@ -166,5 +169,41 @@ public class MemberDao {
 		} 
 		
 	}
+	
+	/**
+	 * 查詢所有會員
+	 * */
+	public List<Member> findAll() {
+		List<Member> members = new ArrayList<>();
+		
+		String sql = "select id, username, hash, salt, email, role, create_time from member order by id";
+		try(Connection conn = DBUtil.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)) {
+			
+			// 取資料
+			while(rs.next()) {
+				// 將資料列的資料注入到 member 物件中
+				Member member = new Member();
+				member.setId(rs.getInt("id"));
+				member.setUsername(rs.getString("username"));
+				member.setEmail(rs.getString("email"));
+				member.setRole(rs.getString("role"));
+				member.setSalt(rs.getString("salt"));
+				member.setHash(rs.getString("hash"));
+				member.setCreateTime(rs.getDate("create_time")); 
+				
+				// 注入到 members 集合 (收集起來)
+				members.add(member);
+			}
+			
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("查詢失敗, " + e.getMessage());
+		}
+		
+		return members;
+	}
+	
 	
 }
