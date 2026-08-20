@@ -99,6 +99,32 @@ public class MemberDao {
 	}
 	
 	
+	/**
+	 * 更新 email
+	 * */
+	public void updateEmail(Integer id, String email) {
+		String sql = """
+				update member set email=? where id=?
+				""";
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, email);
+			pstmt.setInt(2, id);
+			
+			// 執行更新
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("修改 email 失敗, " + e.getMessage());
+		}
+		
+	}
+	
+	
+	/**
+	 * 更新 password
+	 * */
 	
 	
 }
