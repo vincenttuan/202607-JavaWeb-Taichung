@@ -53,6 +53,12 @@ public class ProfileController extends HttpServlet {
 		// 修改 email
 		memberDao.updateEmail(id, email);
 		
+		// 重導到結果頁
+		String title = "會員修改";
+		String message = "修改完畢";
+		req.setAttribute("title", title);
+		req.setAttribute("message", message);
+		req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 	}
 	
 }
