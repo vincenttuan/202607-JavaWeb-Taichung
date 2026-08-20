@@ -143,9 +143,28 @@ public class MemberDao {
 		} catch (SQLException e) {
 			throw new RuntimeException("更新密碼失敗, " + e.getMessage());
 		}
-		
-		
 	}
 	
+	/**
+	 * 刪除會員
+	 * */
+	public void delete(Integer id) {
+		String sql = """
+				delete from member where id = ?
+				""";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, id);
+			
+			// 執行刪除
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("刪除失敗, " + e.getMessage());
+		} 
+		
+	}
 	
 }
