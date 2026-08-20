@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -43,7 +44,8 @@ public class MemberListController extends HttpServlet {
 			return;
 		}
 		
-		resp.getWriter().print("pass");
+		List<Member> members = memberDao.findAll();
+		resp.getWriter().print(members);
 	}
 	
 }
