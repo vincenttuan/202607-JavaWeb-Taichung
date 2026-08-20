@@ -125,6 +125,20 @@ public class MemberDao {
 	/**
 	 * 更新 password
 	 * */
+	public void updatePassword(Integer id, String salt, String hash) {
+		String sql = """
+				update member set salt=?, hash=? where id=?
+				""";
+		
+		try() {
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("更新密碼失敗, " + e.getMessage());
+		}
+		
+		
+		
+	}
 	
 	
 }
