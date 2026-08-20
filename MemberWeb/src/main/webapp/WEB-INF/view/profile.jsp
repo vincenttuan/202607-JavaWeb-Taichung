@@ -22,7 +22,7 @@
 			<button type="submit" class="pure-button pure-button-primary">修改</button>
 		</form>
 		
-	</body>
+	</body> 
 	
 	<jsp:include page="footer.jsp" />
 	
