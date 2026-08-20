@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.util.SHA256Util;
 
 /**
  * 個人資料
@@ -30,6 +31,20 @@ public class ProfileController extends HttpServlet {
 		
 		// 重導到個人資料頁 profile.jsp
 		req.getRequestDispatcher("/WEB-INF/view/profile.jsp").forward(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		
+		if(password != null) {
+			// 取得新密碼的 salt 與 hash
+			String salt = SHA256Util.generateSalt();
+			String hash = SHA256Util.hash(password, salt);
+			
+		}
+		
 	}
 	
 }
