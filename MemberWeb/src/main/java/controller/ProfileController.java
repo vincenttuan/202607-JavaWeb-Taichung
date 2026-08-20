@@ -46,8 +46,12 @@ public class ProfileController extends HttpServlet {
 			// 取得新密碼的 salt 與 hash
 			String salt = SHA256Util.generateSalt();
 			String hash = SHA256Util.hash(password, salt);
-			
+			// 修改密碼
+			memberDao.updatePassword(id, salt, hash);
 		}
+		
+		// 修改 email
+		memberDao.updateEmail(id, email);
 		
 	}
 	
