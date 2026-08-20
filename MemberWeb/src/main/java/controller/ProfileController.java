@@ -42,7 +42,7 @@ public class ProfileController extends HttpServlet {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		
-		if(password != null) {
+		if(password != null && password.trim().length() > 0) {
 			// 取得新密碼的 salt 與 hash
 			String salt = SHA256Util.generateSalt();
 			String hash = SHA256Util.hash(password, salt);
