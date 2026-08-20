@@ -130,12 +130,19 @@ public class MemberDao {
 				update member set salt=?, hash=? where id=?
 				""";
 		
-		try() {
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, salt);
+			pstmt.setString(2, hash);
+			pstmt.setInt(3, id);
+			
+			// 更新
+			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			throw new RuntimeException("更新密碼失敗, " + e.getMessage());
 		}
-		
 		
 		
 	}
