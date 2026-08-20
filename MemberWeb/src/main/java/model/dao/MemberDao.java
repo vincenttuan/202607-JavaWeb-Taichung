@@ -196,14 +196,9 @@ public class MemberDao {
 				// 注入到 members 集合 (收集起來)
 				members.add(member);
 			}
-			
-			
 		} catch (SQLException e) {
 			throw new RuntimeException("查詢失敗, " + e.getMessage());
 		}
-		
 		return members;
 	}
-	
-	
 }
