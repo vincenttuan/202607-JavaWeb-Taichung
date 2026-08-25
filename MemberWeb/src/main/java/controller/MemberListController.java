@@ -45,7 +45,9 @@ public class MemberListController extends HttpServlet {
 		}
 		
 		List<Member> members = memberDao.findAll();
-		resp.getWriter().print(members);
+		//resp.getWriter().print(members);
+		req.setAttribute("members", members);
+		req.getRequestDispatcher("/WEB-INF/view/member-list.jsp").forward(req, resp);
 	}
 	
 }
