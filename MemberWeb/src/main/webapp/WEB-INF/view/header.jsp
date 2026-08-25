@@ -29,15 +29,20 @@
 </style>
 
 <div class="header">
+	<!-- 已登入 -->
 	<c:if test="${not empty sessionScope.member}">
 		<span>
 			Hi ${sessionScope.member.username}（Role=${sessionScope.member.role}）您好！
 		</span>
+		<a href="/MemberWeb/profile">會員中心</a>
+		<a href="/MemberWeb/list">會員列表</a>
+		<a href="/MemberWeb/logout">登出</a>
 	</c:if>
-	<a href="/MemberWeb/login">登入</a>
-	<a href="/MemberWeb/register">註冊</a>
-	<a href="/MemberWeb/profile">會員中心</a>
-	<a href="/MemberWeb/list">會員列表</a>
-	<a href="/MemberWeb/logout">登出</a>
+	
+	<!-- 未登入 -->
+	<c:if test="${empty sessionScope.member}">
+		<a href="/MemberWeb/login">登入</a>
+		<a href="/MemberWeb/register">註冊</a>
+	</c:if>
 	
 </div>
