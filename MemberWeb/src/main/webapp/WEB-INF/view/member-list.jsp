@@ -24,7 +24,19 @@
 					<th>create time</th>
 					<th>delete</th>
 				</tr>
-				
+				<!-- 資料迴圈列表 -->
+				<c:forEach var="member" items="${members}">
+					<tr>
+						<td>${member.id}</td>
+						<td>${member.username}</td>
+						<td>${member.email}</td>
+						<td>${member.role}</td>
+						<td>${member.createTime}</td>
+						<td>
+							<a href="/MemberWeb/delete?id=${member.id}" class="pure-button">Delete</a>
+						</td>
+					</tr>
+				</c:forEach>
 				
 			</thead>
 			<tbody></tbody>
