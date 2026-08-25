@@ -24,15 +24,10 @@ public class MemberListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 判斷是否有登入
-		HttpSession session = req.getSession();
-		// 注意, 登入成功一定會有 member 的 session 物件
-		if(session.getAttribute("member") == null) {
-			// 重導到登入頁面
-			resp.sendRedirect("/MemberWeb/login");
-			return;
-		}
+		// 由 LoginFilter 來判斷
 		
 		// 判斷 role=ADMIN ?
+		HttpSession session = req.getSession();
 		Member member = (Member)session.getAttribute("member");
 		if(!member.getRole().equals("ADMIN")) {
 			// 重導到結果頁
