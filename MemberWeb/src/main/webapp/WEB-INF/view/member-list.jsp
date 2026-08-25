@@ -24,6 +24,8 @@
 					<th>create time</th>
 					<th>delete</th>
 				</tr>
+			</thead>
+			<tbody>	
 				<!-- 資料迴圈列表 -->
 				<c:forEach var="member" items="${members}">
 					<tr>
@@ -37,9 +39,7 @@
 						</td>
 					</tr>
 				</c:forEach>
-				
-			</thead>
-			<tbody></tbody>
+			</tbody>
 		</table>
 		
 	</body> 
