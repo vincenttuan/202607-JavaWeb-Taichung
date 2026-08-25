@@ -29,6 +29,9 @@
 </style>
 
 <div class="header">
+	<span>
+		Hi ${sessionScope.member.username}（${sessionScope.member.role}）您好 !
+	</span>
 	<a href="/MemberWeb/login">登入</a>
 	<a href="/MemberWeb/register">註冊</a>
 	<a href="/MemberWeb/profile">會員中心</a>
