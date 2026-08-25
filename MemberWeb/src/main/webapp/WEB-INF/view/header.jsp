@@ -31,7 +31,7 @@
 <div class="header">
 	<c:if test="${not empty sessionScope.member}">
 		<span>
-			Hi ${sessionScope.member.username}（${sessionScope.member.role}）您好！
+			Hi ${sessionScope.member.username}（Role=${sessionScope.member.role}）您好！
 		</span>
 	</c:if>
 	<a href="/MemberWeb/login">登入</a>
