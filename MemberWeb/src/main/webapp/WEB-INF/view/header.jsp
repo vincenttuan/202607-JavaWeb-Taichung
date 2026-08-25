@@ -35,7 +35,11 @@
 			Hi ${sessionScope.member.username}（Role=${sessionScope.member.role}）您好！
 		</span>
 		<a href="/MemberWeb/profile">會員中心</a>
-		<a href="/MemberWeb/list">會員列表</a>
+		
+		<c:if test="${sessionScope.member.role == 'ADMIN'}">
+			<a href="/MemberWeb/list">會員列表</a>
+		</c:if>
+		
 		<a href="/MemberWeb/logout">登出</a>
 	</c:if>
 	
