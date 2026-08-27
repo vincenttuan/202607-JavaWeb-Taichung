@@ -87,7 +87,7 @@ public class ProductController extends HttpServlet {
 		resp.getWriter().print("stock: " + stock + "<p />");
 		resp.getWriter().print("imageType: " + imageType + "<p />");
 		resp.getWriter().print("imageBase64: " + imageBase64 + "<p />");
-		
+		resp.getWriter().print("<img src='data:" + imageType + ";base64," + imageBase64 + "'>");
 		
 	}
 	
