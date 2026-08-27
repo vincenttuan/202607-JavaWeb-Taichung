@@ -43,12 +43,10 @@ public class ProductController extends HttpServlet {
 	
 	// 顯示新增表單
 	private void showCreateForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/product-form.jsp");
 		req.setAttribute("formTitle", "新增");
 		req.setAttribute("formAction", "insert");
 		rd.forward(req, resp);
-		
 	}
 	
 	
