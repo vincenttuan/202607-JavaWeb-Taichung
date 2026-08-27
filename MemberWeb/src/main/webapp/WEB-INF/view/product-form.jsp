@@ -138,9 +138,9 @@
 	            "玉米湯", "中薯"
 	        ];
 			
-	        console.log(snackNames);
-	        console.log(name.trim());
-	        console.log(snackNames.includes(name));
+	        //console.log(snackNames);
+	        //console.log(name.trim());
+	        //console.log(snackNames.includes(name));
 	        
 	        category = snackNames.includes(name)
 	                ? "SNACK"
