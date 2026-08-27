@@ -75,6 +75,96 @@
     </main>
 
     <jsp:include page="footer.jsp" />
+	
+	<script>
+		// 圖片預覽
+		document.getElementById("imageFile").onchange = function () {
 
+	    const file = this.files[0];
+	    if (!file) return;
+	
+	    //-------------------------
+	    // 圖片預覽
+	    //-------------------------
+	    const reader = new FileReader();
+	
+	    reader.onload = function (e) {
+	        imagePreview.src = e.target.result;
+	        imagePreview.classList.remove("image-preview-hidden");
+	        document.querySelector(".image-preview-hint").classList.add("image-preview-hidden");
+	    };
+	
+	    reader.readAsDataURL(file);
+	
+	    //-------------------------
+	    // 自動解析檔名
+	    //-------------------------
+	
+	    const filename = file.name.replace(/\.[^.]+$/, "");
+	
+	    // 商品價格(最後一串數字)
+	    const priceMatch = filename.match(/(\d+)$/);
+	
+	    if (!priceMatch)
+	        return;
+	
+	    const price = parseInt(priceMatch[1]);
+	
+	    // 去掉最後價格
+	    let body = filename.replace(/\d+$/, "");
+	
+	    // 去掉前面的 m12345 或 d12345
+	    body = body.replace(/^[md]\d+/i, "");
+	
+	    const name = body;
+	
+	    //-------------------------
+	    // 填資料
+	    //-------------------------
+	
+	    document.getElementById("name").value = name;
+	    document.getElementById("price").value = price;
+	
+	    //-------------------------
+	    // 分類判斷
+	    //-------------------------
+	
+	    let category = "BURGER";
+	
+	    if (file.name.startsWith("d")) {
+	
+	        const snackNames = [
+	            "玉米湯"
+	        ];
+	
+	        category = snackNames.includes(name)
+	                ? "SNACK"
+	                : "DRINK";
+	
+	    } else {
+	
+	        const snackKeywords = [
+	            "雞塊",
+	            "薯條",
+	            "雞腿",
+	            "沙拉",
+	            "玉米",
+	            "派",
+	            "麥脆雞"
+	        ];
+	
+	        const isSnack = snackKeywords.some(k => name.includes(k));
+	
+	        category = isSnack
+	                ? "SNACK"
+	                : "BURGER";
+	    }
+	
+	    document.getElementById("category").value = category;
+	
+	};
+	</script>
+			
+	
 </body>
 </html>
