@@ -73,7 +73,7 @@
 			</div>
 
 			<div class="admin-form-actions">
-				<a href="/McdonaldOrder/products?action=list" class="admin-button admin-button-secondary">取消</a>
+				<a href="${pageContext.request.contextPath}/products?action=list" class="admin-button admin-button-secondary">取消</a>
 				<button type="submit" class="admin-button admin-button-primary">${ formTitle }商品</button>
 			</div>
 		</form>
