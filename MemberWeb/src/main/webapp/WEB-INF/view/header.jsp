@@ -1,52 +1,36 @@
-<%@ page import="model.entity.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %> 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
-<style>
-    .header {
-        background: #1f2937;
-        color: white;
-        padding: 12px 20px;
-    }
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-    .header a {
-        color: white;
-        margin-right: 15px;
-        text-decoration: none;
-        font-weight: bold;
-    }
+<header class="member-header">
+    <a class="member-brand" href="${contextPath}/login" aria-label="歡樂點餐會員服務首頁">
+        <span class="member-brand-mark" aria-hidden="true">M</span>
+        <span class="member-brand-text">
+            <strong>歡樂點餐</strong>
+            <small>會員服務</small>
+        </span>
+    </a>
 
-    .header a:hover {
-        text-decoration: underline;
-    }
+    <nav class="member-nav" aria-label="會員導覽">
+        <c:if test="${not empty sessionScope.member}">
+            <span class="member-nav-account">
+                <span class="member-nav-greeting">Hi，<c:out value="${sessionScope.member.username}" /></span>
+                <span class="member-role"><c:out value="${sessionScope.member.role}" /></span>
+            </span>
+            <a class="member-nav-link" href="${contextPath}/profile">會員中心</a>
 
-    .container {
-        width: 900px;
-        margin: 20px auto;
-    }
-</style>
+            <c:if test="${sessionScope.member.role == 'ADMIN'}">
+                <a class="member-nav-link" href="${contextPath}/list">會員列表</a>
+            </c:if>
 
-<div class="header">
-	<!-- 已登入 -->
-	<c:if test="${not empty sessionScope.member}">
-		<span>
-			Hi ${sessionScope.member.username}（Role=${sessionScope.member.role}）您好！
-		</span>
-		<a href="/MemberWeb/profile">會員中心</a>
-		
-		<c:if test="${sessionScope.member.role == 'ADMIN'}">
-			<a href="/MemberWeb/list">會員列表</a>
-		</c:if>
-		
-		<a href="/MemberWeb/logout">登出</a>
-	</c:if>
-	
-	<!-- 未登入 -->
-	<c:if test="${empty sessionScope.member}">
-		<a href="/MemberWeb/login">登入</a>
-		<a href="/MemberWeb/register">註冊</a>
-	</c:if>
-	
-</div>
+            <a class="member-nav-link member-nav-link-accent" href="${contextPath}/logout">登出</a>
+        </c:if>
+
+        <c:if test="${empty sessionScope.member}">
+            <a class="member-nav-link" href="${contextPath}/login">登入</a>
+            <a class="member-nav-link member-nav-link-accent" href="${contextPath}/register">註冊</a>
+        </c:if>
+    </nav>
+</header>
