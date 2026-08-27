@@ -141,17 +141,9 @@ button {
     background-color: var(--brand-yellow);
 }
 
-.admin-container {
+.product-admin-page .admin-container {
     max-width: 1180px;
     margin: 30px auto;
-    padding: 0;
-}
-
-/* 商品管理頁 */
-.product-admin-page {
-	display: grid;
-    grid-template-rows: auto 1fr auto;
-    padding: 0;
 }
 
 .product-admin-page .admin-form-container {
