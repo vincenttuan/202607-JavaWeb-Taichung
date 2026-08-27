@@ -141,9 +141,13 @@ button {
     background-color: var(--brand-yellow);
 }
 
-.product-admin-page .admin-container {
+.admin-container {
     max-width: 1180px;
     margin: 30px auto;
+}
+
+.product-admin-page {
+	padding: 0
 }
 
 .product-admin-page .admin-form-container {
