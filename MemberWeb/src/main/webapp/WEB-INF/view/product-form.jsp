@@ -135,7 +135,7 @@
 	    if (file.name.startsWith("d")) {
 	
 	        const snackNames = [
-	            "玉米湯"
+	            "玉米湯", "中薯"
 	        ];
 	
 	        category = snackNames.includes(name)
