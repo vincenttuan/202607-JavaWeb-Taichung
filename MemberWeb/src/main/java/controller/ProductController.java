@@ -5,6 +5,7 @@ import java.util.Base64;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,6 +30,11 @@ import jakarta.servlet.http.Part;
  * */
 
 @WebServlet("/products")
+@MultipartConfig(
+		fileSizeThreshold = 2*1024*1024, // 2MB
+		maxFileSize = 2*1024*1024, // 2MB(單一檔最大值)
+		maxRequestSize = 2*1024*1024 // 2MB(全部最大值)
+)
 public class ProductController extends HttpServlet {
 	
 	@Override
