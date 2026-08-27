@@ -89,7 +89,7 @@
 		    const reader = new FileReader();
 		
 		    reader.onload = function (e) {
-		    	console.log(e.target.result);
+		    	//console.log(e.target.result);
 		        imagePreview.src = e.target.result;
 		        imagePreview.classList.remove("image-preview-hidden");
 		        document.querySelector(".image-preview-hint").classList.add("image-preview-hidden");
@@ -137,7 +137,11 @@
 	        const snackNames = [
 	            "玉米湯", "中薯"
 	        ];
-	
+			
+	        console.log(snackNames);
+	        console.log(name.trim());
+	        console.log(snackNames.includes(name));
+	        
 	        category = snackNames.includes(name)
 	                ? "SNACK"
 	                : "DRINK";
@@ -153,7 +157,7 @@
 	            "派",
 	            "麥脆雞"
 	        ];
-	
+			
 	        const isSnack = snackKeywords.some(k => name.includes(k));
 	
 	        category = isSnack
