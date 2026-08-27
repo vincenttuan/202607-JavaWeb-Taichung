@@ -26,20 +26,18 @@
 			enctype="multipart/form-data" 
 			action="${pageContext.request.contextPath}/products?action=${ formAction }">
 
-			<input type="hidden" name="id" value="${ product.id }" />
-
 			<div class="admin-form-grid">
 				<label class="admin-field admin-field-wide" for="name">
 					<span>商品名稱</span>
-					<input id="name" name="name" type="text" maxlength="100" required value="${ product.name }" placeholder="請輸入商品名稱">
+					<input id="name" name="name" type="text" maxlength="100" required placeholder="請輸入商品名稱">
 				</label>
 
 				<label class="admin-field" for="category">
 					<span>商品分類</span>
 					<select id="category" name="category" required>
-						<option value="BURGER" ${ product.category == 'BURGER' ? 'selected' : '' }>BURGER 漢堡</option>
-						<option value="SNACK"  ${ product.category == 'SNACK' ? 'selected' : ''  }>SNACK 小點</option>
-						<option value="DRINK"  ${ product.category == 'DRINK' ? 'selected' : ''  }>DRINK 飲品</option>
+						<option value="BURGER">BURGER 漢堡</option>
+						<option value="SNACK">SNACK 小點</option>
+						<option value="DRINK">DRINK 飲品</option>
 					</select>
 				</label>
 
@@ -47,13 +45,13 @@
 					<span>商品價格</span>
 					<div class="admin-input-prefix">
 						<span>$</span>
-						<input type="number" id="price" name="price" min="0" step="1" required value="${ product.price }">
+						<input type="number" id="price" name="price" min="0" step="1" required>
 					</div>
 				</label>
 
 				<label class="admin-field" for="stock">
 					<span>商品庫存</span>
-					<input type="number" id="stock" name="stock" min="0" step="1" required value="${ empty product.stock ? 10 : product.stock }">
+					<input type="number" id="stock" name="stock" min="0" step="1" required>
 				</label>
 
 				<label class="admin-field admin-field-wide" for="imageFile">
@@ -65,11 +63,8 @@
 			
 			<div class="admin-image-preview-box">
 				<span>圖片預覽</span>
-				<img id="imagePreview"
-					 class="image-preview ${empty product.imageBase64 ? 'image-preview-hidden' : ''}"
-					 src="data:${ product.imageType };base64,${product.imageBase64}"
-					 alt="${ product.name }">
-				<p class="image-preview-hint ${not empty product.imageBase64 ? 'image-preview-hidden' : ''}">選擇圖片後會顯示在這裡</p>
+				<img id="imagePreview" class="image-preview">
+				<p class="image-preview-hint">選擇圖片後會顯示在這裡</p>
 			</div>
 
 			<div class="admin-form-actions">
