@@ -32,5 +32,8 @@
             <a class="member-nav-link" href="${contextPath}/login">登入</a>
             <a class="member-nav-link member-nav-link-accent" href="${contextPath}/register">註冊</a>
         </c:if>
+        
+        <a class="member-nav-link" href="${contextPath}/products?action=new">商品新增</a>
+        
     </nav>
 </header>
