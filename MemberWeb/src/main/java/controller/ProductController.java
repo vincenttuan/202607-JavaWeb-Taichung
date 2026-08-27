@@ -32,7 +32,12 @@ public class ProductController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		showCreateForm(req, resp);
+		String action = req.getParameter("action");
+		
+		switch(action) {
+			case "new" -> showCreateForm(req, resp);
+			
+		}
 		
 	}
 	
