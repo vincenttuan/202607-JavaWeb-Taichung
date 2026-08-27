@@ -80,21 +80,22 @@
 		// 圖片預覽
 		document.getElementById("imageFile").onchange = function () {
 
-	    const file = this.files[0];
-	    if (!file) return;
+			const file = this.files[0];
+			if (!file) return;
 	
-	    //-------------------------
-	    // 圖片預覽
-	    //-------------------------
-	    const reader = new FileReader();
-	
-	    reader.onload = function (e) {
-	        imagePreview.src = e.target.result;
-	        imagePreview.classList.remove("image-preview-hidden");
-	        document.querySelector(".image-preview-hint").classList.add("image-preview-hidden");
-	    };
-	
-	    reader.readAsDataURL(file);
+	    	//-------------------------
+	    	// 圖片預覽
+	    	//-------------------------
+		    const reader = new FileReader();
+		
+		    reader.onload = function (e) {
+		    	console.log(e.target.result);
+		        imagePreview.src = e.target.result;
+		        imagePreview.classList.remove("image-preview-hidden");
+		        document.querySelector(".image-preview-hint").classList.add("image-preview-hidden");
+		    };
+		
+		    reader.readAsDataURL(file);
 	
 	    //-------------------------
 	    // 自動解析檔名
