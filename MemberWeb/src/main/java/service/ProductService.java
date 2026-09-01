@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import model.dao.ProductDao;
 import model.dto.ProductDto;
 import model.entity.Product;
@@ -20,6 +22,14 @@ public class ProductService {
 		
 		// 儲存 product (entity)
 		productDao.insert(product);
+	}
+	
+	// 查詢所有商品
+	public List<ProductDto> findAll() {
+		return productDao.findAll()
+						 .stream()
+						 .map(this::toDto)
+						 .toList();
 	}
 	
 	// 轉 entity
