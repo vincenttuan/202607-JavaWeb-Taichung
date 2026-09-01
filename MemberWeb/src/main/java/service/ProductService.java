@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.dao.ProductDao;
@@ -26,11 +27,17 @@ public class ProductService {
 	
 	// 查詢所有商品
 	public List<ProductDto> findAll() {
-		return productDao.findAll()
-						 .stream()
-						 //.map(product -> toDto(product))
-						 .map(this::toDto)
-						 .toList();
+		
+		List<Product> products = productDao.findAll();
+		List<ProductDto> productDtos = new ArrayList<>();
+		for(Product product : products) {
+			productDtos.add(toDto(product));
+		}
+		return productDtos;
+		
+		
+		//return productDao.findAll().stream().map(this::toDto).toList();
+						 
 	}
 	
 	// 轉 entity
