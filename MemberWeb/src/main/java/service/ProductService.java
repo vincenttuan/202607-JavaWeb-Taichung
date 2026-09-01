@@ -25,6 +25,7 @@ public class ProductService {
 	// 轉 entity
 	private Product toEntity(ProductDto productDto) {
 		Product product = new Product();
+		
 		product.setName(productDto.getName());
 		product.setCategory(productDto.getCategory());
 		product.setPrice(productDto.getPrice());
