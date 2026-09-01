@@ -15,8 +15,6 @@ package model.entity;
  	create_at timestamp default current_timestamp,
  	update_at timestamp default current_timestamp on update current_timestamp
  );
-  
-  
  */
 
 public class Product {
