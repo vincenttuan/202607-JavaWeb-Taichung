@@ -85,6 +85,7 @@ public class ProductController extends HttpServlet {
 		byte[] imageBytes = imagePart.getInputStream().readAllBytes(); // 讀取圖檔串流
 		String imageBase64 = Base64.getEncoder().encodeToString(imageBytes); // 將圖片轉 base64
 		
+		/*
 		resp.getWriter().print("name: " + name + "<p />");
 		resp.getWriter().print("category: " + category + "<p />");
 		resp.getWriter().print("price: " + price + "<p />");
@@ -92,6 +93,7 @@ public class ProductController extends HttpServlet {
 		resp.getWriter().print("imageType: " + imageType + "<p />");
 		resp.getWriter().print("imageBase64: " + imageBase64 + "<p />");
 		resp.getWriter().print("<img src='data:" + imageType + ";base64," + imageBase64 + "'>");
+		*/
 		
 		// 建立 DTO
 		ProductDto productDto = new ProductDto();
@@ -105,6 +107,11 @@ public class ProductController extends HttpServlet {
 		
 		// 新增資料
 		productService.create(productDto);
+		
+		// 重導到 result.jsp
+		req.setAttribute("title", "商品新增");
+		req.setAttribute("message", "商品新增-成功");
+		req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 		
 	}
 	
