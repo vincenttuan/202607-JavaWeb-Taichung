@@ -28,6 +28,7 @@ public class ProductService {
 	public List<ProductDto> findAll() {
 		return productDao.findAll()
 						 .stream()
+						 //.map(product -> toDto(product))
 						 .map(this::toDto)
 						 .toList();
 	}
