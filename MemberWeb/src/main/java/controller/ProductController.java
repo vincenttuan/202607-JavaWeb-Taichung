@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -121,6 +122,12 @@ public class ProductController extends HttpServlet {
 		req.setAttribute("formTitle", "新增");
 		req.setAttribute("formAction", "insert");
 		rd.forward(req, resp);
+	}
+	
+	// 顯示所有資料
+	private void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<ProductDto> productDtos = productService.findAll();
+		resp.getWriter().print(productDtos);
 	}
 	
 	
