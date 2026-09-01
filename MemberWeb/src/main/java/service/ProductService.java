@@ -26,6 +26,7 @@ public class ProductService {
 	private Product toEntity(ProductDto productDto) {
 		Product product = new Product();
 		
+		product.setId(productDto.getId());
 		product.setName(productDto.getName());
 		product.setCategory(productDto.getCategory());
 		product.setPrice(productDto.getPrice());
