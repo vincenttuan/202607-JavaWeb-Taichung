@@ -1,5 +1,9 @@
 package model.entity;
 
+import java.time.LocalDateTime;
+
+import lombok.Data;
+
 /**
  use shopping;
   
@@ -17,6 +21,17 @@ package model.entity;
  );
  */
 
+@Data
 public class Product {
-
+	private Integer id;
+	private String name;
+	private String category;
+	private Integer price;
+	private Integer stock;
+	private String imageBase64;
+	private String imageType;
+	private LocalDateTime createAt;
+	private LocalDateTime updateAt;
 }
+
+
