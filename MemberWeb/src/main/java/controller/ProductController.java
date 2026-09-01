@@ -49,7 +49,8 @@ public class ProductController extends HttpServlet {
 		
 		switch(action) {
 			case "new" -> showCreateForm(req, resp);
-			
+			case "list" -> showList(req, resp);
+			default -> showList(req, resp);
 		}
 		
 	}
