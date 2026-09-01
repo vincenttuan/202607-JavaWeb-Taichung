@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import model.dto.ProductDto;
+import service.ProductService;
 
 /**
  * 商品 Controller
@@ -36,6 +38,8 @@ import jakarta.servlet.http.Part;
 		maxRequestSize = 2*1024*1024 // 2MB(全部最大值)
 )
 public class ProductController extends HttpServlet {
+	
+	private ProductService productService = new ProductService(); 
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -88,6 +92,19 @@ public class ProductController extends HttpServlet {
 		resp.getWriter().print("imageType: " + imageType + "<p />");
 		resp.getWriter().print("imageBase64: " + imageBase64 + "<p />");
 		resp.getWriter().print("<img src='data:" + imageType + ";base64," + imageBase64 + "'>");
+		
+		// 建立 DTO
+		ProductDto productDto = new ProductDto();
+		
+		productDto.setName(name);
+		productDto.setCategory(category);
+		productDto.setPrice(Integer.valueOf(price));
+		productDto.setStock(Integer.valueOf(stock));
+		productDto.setImageBase64(imageBase64);
+		productDto.setImageType(imageType);
+		
+		// 新增資料
+		productService.create(productDto);
 		
 	}
 	
