@@ -69,8 +69,8 @@
 								
 								<!-- 商品訂購 -->
 								<form class="order-form" method="post" action="${pageContext.request.contextPath}/order">
-									<input name="action" value="insert">
-									<input name="productId" value="${ product.id }">
+									<input type="hidden" name="action" value="insert">
+									<input type="hidden" name="productId" value="${ product.id }">
 									<button class="order-button" type="submit">
 										加入購物車 🛒
 									</button>
