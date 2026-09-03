@@ -485,8 +485,8 @@ button {
 }
 
 .product-admin-page .admin-category-DRINK {
-    color: var(--brand-red-dark);
-    background-color: var(--brand-red-soft);
+    color: var(--brand-blue-dark);
+    background-color: var(--brand-blue-soft);
 }
 
 .product-admin-page .admin-price {
