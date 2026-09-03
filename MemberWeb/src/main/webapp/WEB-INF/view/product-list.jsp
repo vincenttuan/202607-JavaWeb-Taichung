@@ -43,7 +43,7 @@
 								<td class="admin-product-name">${ product.name }</td>
 								<td>${ product.category }</td>
 								<td class="admin-name">${ product.price }</td>
-								<td class="admin-stock">${ product.stock }</td>
+								<td><span class="admin-stock">${ product.stock }</span></td>
 							</tr>
 						</c:forEach>
 					</tbody>
