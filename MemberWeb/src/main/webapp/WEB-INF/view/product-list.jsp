@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>商品列表</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css?t=<%=new java.util.Date().getTime() %>">
 </head>
 <body class="product-admin-page">
     

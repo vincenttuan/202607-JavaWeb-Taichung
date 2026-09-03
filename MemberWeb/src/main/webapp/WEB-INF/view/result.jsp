@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><c:out value="${title}" />｜歡樂點餐</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css">
 </head>
 <body class="member-page">
     <jsp:include page="header.jsp" />

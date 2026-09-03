@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css?t=<%=new java.util.Date().getTime() %>">
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <header class="member-header">
