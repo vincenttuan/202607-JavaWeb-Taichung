@@ -39,5 +39,7 @@
         
         <a class="member-nav-link" href="${contextPath}/products?action=list">商品列表</a>
         
+        <a class="member-nav-link" href="${contextPath}/order">訂購</a>
+        
     </nav>
 </header>
