@@ -44,6 +44,22 @@ public class OrderController extends HttpServlet {
 		
 	}
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		if(action == null) action = "";
+		
+		switch(action) {
+			case "insert" -> addToCart(req, resp); 
+		}
+	}
+	
+	// 新增到購物車
+	private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.getWriter().print("Not ready ...");
+	}
+	
+	
 	// 呈現商品資料
 	private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 查詢所有商品
