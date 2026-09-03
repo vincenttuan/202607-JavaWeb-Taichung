@@ -56,11 +56,11 @@ public class OrderController extends HttpServlet {
 		req.setAttribute("products", productDtos);
 		req.setAttribute("categories", categories);
 		
-		resp.getWriter().print(productDtos);
-		resp.getWriter().print(categories);
+		//resp.getWriter().print(productDtos);
+		//resp.getWriter().print(categories);
 		
 		// 重導到訂購商品主頁
-		//req.getRequestDispatcher("/WEB-INF/view/order-main.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/order-main.jsp").forward(req, resp);
 		
 	}
 	
