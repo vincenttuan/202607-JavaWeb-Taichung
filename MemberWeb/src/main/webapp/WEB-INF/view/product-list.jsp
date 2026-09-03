@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>     
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -36,7 +37,18 @@
 							<th>庫存</th>
 						</tr>
 					</thead>
-					
+					<tbody>
+						<c:forEach var="product" items="${ products }">
+							<tr>
+								<td>#${ product.id }</td>
+								<td></td>
+								<td>${ product.name }</td>
+								<td>${ product.category }</td>
+								<td>${ product.price }</td>
+								<td>${ product.stock }</td>
+							</tr>
+						</c:forEach>
+					</tbody>
 				</table>
 			</div>
 			
