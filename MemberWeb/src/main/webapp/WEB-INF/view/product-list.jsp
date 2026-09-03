@@ -42,7 +42,7 @@
 								<td><img class="product-thumbnail" src="data:${ product.imageType };base64,${ product.imageBase64 }"></td>
 								<td class="admin-product-name">${ product.name }</td>
 								<td>${ product.category }</td>
-								<td class="admin-name">${ product.price }</td>
+								<td class="admin-name">$${ product.price }</td>
 								<td><span class="admin-stock">${ product.stock }</span></td>
 							</tr>
 						</c:forEach>
