@@ -38,7 +38,17 @@
 					<c:if test="${ product.category == category[0] }">
 						
 						<article class="product-card">
+							<!-- 商品圖片 -->
+							<div class="product-image-box">
+								<span class="product-id">
+									#${ product.id }
+								</span>
+								
+								<img class="product-image" 
+									 src="data:${ product.imageType };base64,${ product.imageBase64 }" >
+							</div>
 							
+							<!-- 商品資訊 -->
 							
 						</article>
 						
