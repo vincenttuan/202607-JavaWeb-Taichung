@@ -1,5 +1,8 @@
 package controller;
 
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+
 /**
  * 訂購商品
  * 
@@ -17,6 +20,9 @@ package controller;
  * action=remove   -> 移除購物車商品
  * action=checkout -> 結帳
  * */
-public class OrderController {
-
+@WebServlet("/order")
+public class OrderController extends HttpServlet {
+	
+	
+	
 }
