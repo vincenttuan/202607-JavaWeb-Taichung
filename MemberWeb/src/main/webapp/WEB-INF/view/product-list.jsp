@@ -41,7 +41,7 @@
 						<c:forEach var="product" items="${ products }">
 							<tr>
 								<td>#${ product.id }</td>
-								<td><img src="data:${ product.imageType };base64,${ product.imageBase64 }"></td>
+								<td><img class="product-thumbnail" src="data:${ product.imageType };base64,${ product.imageBase64 }"></td>
 								<td>${ product.name }</td>
 								<td>${ product.category }</td>
 								<td>${ product.price }</td>
