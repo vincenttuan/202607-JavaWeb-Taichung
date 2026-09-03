@@ -23,6 +23,25 @@
 		
 		${ products }
 		
+		<div class="admin-card admin-table-card">
+			<div class="admin-table-scroll">
+				<table class="admin-table">
+					<thead>
+						<tr>
+							<th>編號</th>
+							<th>圖片</th>
+							<th>名稱</th>
+							<th>分類</th>
+							<th>價格</th>
+							<th>庫存</th>
+						</tr>
+					</thead>
+					
+				</table>
+			</div>
+			
+		</div>
+		
     </main>
 
     <jsp:include page="footer.jsp" />
