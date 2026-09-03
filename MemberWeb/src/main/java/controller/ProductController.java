@@ -133,5 +133,4 @@ public class ProductController extends HttpServlet {
 		req.getRequestDispatcher("/WEB-INF/view/product-list.jsp").forward(req, resp);
 	}
 	
-	
 }
