@@ -32,6 +32,20 @@
 			</div>
 			
 			<!-- 商品圖卡 -->
+			<div class="product-grid">
+				<c:forEach var="product" items="${ products }">
+					
+					<c:if test="${ product.category == category[0] }">
+						
+						<article class="product-card">
+							
+							
+						</article>
+						
+					</c:if>
+					
+				</c:forEach>
+			</div>
 			
 		</section>
 		
