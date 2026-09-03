@@ -21,11 +21,23 @@
 		</header>
     </main>
 	
-	${ products }
-	<hr />
-	${ categories }
+	<!-- 商品分類 -->
+	<c:forEach var="category" items="${ categories }">
+		
+		<section class="category-section">
+			<!-- 分類 -->
+			<div class="category-title">
+				<h2>${ category[1] }</h2>
+				<span>${ category[0] }</span>
+			</div>
+			
+			<!-- 商品圖卡 -->
+			
+		</section>
+		
+	</c:forEach>
 	
-    <jsp:include page="footer.jsp" />
+	<jsp:include page="footer.jsp" />
 	
 	
 </body>
