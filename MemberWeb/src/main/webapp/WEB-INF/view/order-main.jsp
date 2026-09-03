@@ -49,6 +49,26 @@
 							</div>
 							
 							<!-- 商品資訊 -->
+							<div class="product-info">
+								<!-- 商品名稱 -->
+								<h3 class="product-name">
+									${ product-name }
+								</h3>
+								
+								<!-- 商品 meta 資料 -->
+								<div class="product-meta">
+									<div class="product-price">
+										$${ product.price }
+										<small>元</small>
+									</div>
+									
+									<span class="stock">
+										庫存 ${ product.stock }
+									</span>
+								</div>
+								
+							</div>
+							
 							
 						</article>
 						
