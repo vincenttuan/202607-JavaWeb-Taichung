@@ -128,7 +128,9 @@ public class ProductController extends HttpServlet {
 	// 顯示所有資料
 	private void showList(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<ProductDto> productDtos = productService.findAll();
-		resp.getWriter().print(productDtos);
+		//resp.getWriter().print(productDtos);
+		req.setAttribute("products", productDtos);
+		req.getRequestDispatcher("/WEB-INF/view/product-list.jsp").forward(req, resp);
 	}
 	
 	
