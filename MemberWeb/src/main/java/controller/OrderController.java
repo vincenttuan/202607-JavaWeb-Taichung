@@ -1,12 +1,14 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.dto.ProductDto;
 import service.ProductService;
 
 /**
@@ -44,6 +46,21 @@ public class OrderController extends HttpServlet {
 	
 	// 呈現商品資料
 	private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 查詢所有商品
+		List<ProductDto> productDtos = productService.findAll();
+		// 商品分類
+		String[][] categories = {
+				{"BURGER", "🍔 漢堡類"}, {"SNACK", "🍟 點心類"}, {"DRINK", "🥤 飲料類"}
+		};
+		
+		req.setAttribute("products", productDtos);
+		req.setAttribute("categories", categories);
+		
+		resp.getWriter().print(productDtos);
+		resp.getWriter().print(categories);
+		
+		// 重導到訂購商品主頁
+		//req.getRequestDispatcher("/WEB-INF/view/order-main.jsp").forward(req, resp);
 		
 	}
 	
