@@ -22,8 +22,6 @@
 			</div>
 		</header>
 		
-		${ products }
-		
 		<div class="admin-card admin-table-card">
 			<div class="admin-table-scroll">
 				<table class="admin-table">
