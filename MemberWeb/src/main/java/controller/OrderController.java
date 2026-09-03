@@ -33,7 +33,17 @@ public class OrderController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		if(action == null) action = "";
 		
+		switch(action) {
+			case "" -> showProduct(req, resp); 
+		}
+		
+	}
+	
+	// 呈現商品資料
+	private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
 	
