@@ -42,7 +42,7 @@
 								<td><img class="product-thumbnail" src="data:${ product.imageType };base64,${ product.imageBase64 }"></td>
 								<td class="admin-product-name">${ product.name }</td>
 								<td>
-									<span class="admin-category">
+									<span class="admin-category admin-category-${ product.category }">
 										${ product.category }
 									</span>
 								</td>
