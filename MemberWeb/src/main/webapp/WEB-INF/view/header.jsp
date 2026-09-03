@@ -37,5 +37,7 @@
         
         <a class="member-nav-link" href="${contextPath}/products?action=new">商品新增</a>
         
+        <a class="member-nav-link" href="${contextPath}/products?action=list">商品列表</a>
+        
     </nav>
 </header>
