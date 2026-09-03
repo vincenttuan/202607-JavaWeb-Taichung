@@ -67,6 +67,16 @@
 									</span>
 								</div>
 								
+								<!-- 商品訂購 -->
+								<form class="order-form" method="post" action="${pageContext.request.contextPath}/order">
+									
+									<button class="order-button" type="submit">
+										 加入購物車 🛒
+									</button>
+									
+								</form>
+								
+								
 							</div>
 							
 							
