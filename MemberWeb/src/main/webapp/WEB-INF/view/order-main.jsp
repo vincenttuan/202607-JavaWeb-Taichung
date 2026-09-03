@@ -76,9 +76,7 @@
 									</button>
 								</form>
 								
-								
 							</div>
-							
 							
 						</article>
 						
