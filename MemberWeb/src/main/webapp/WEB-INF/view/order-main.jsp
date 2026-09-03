@@ -52,7 +52,7 @@
 							<div class="product-info">
 								<!-- 商品名稱 -->
 								<h3 class="product-name">
-									${ product-name }
+									${ product.name }
 								</h3>
 								
 								<!-- 商品 meta 資料 -->
