@@ -38,12 +38,12 @@
 					<tbody>
 						<c:forEach var="product" items="${ products }">
 							<tr>
-								<td>#${ product.id }</td>
+								<td class="admin-id">#${ product.id }</td>
 								<td><img class="product-thumbnail" src="data:${ product.imageType };base64,${ product.imageBase64 }"></td>
-								<td>${ product.name }</td>
+								<td class="admin-product-name">${ product.name }</td>
 								<td>${ product.category }</td>
-								<td>${ product.price }</td>
-								<td>${ product.stock }</td>
+								<td class="admin-name">${ product.price }</td>
+								<td class="admin-stock">${ product.stock }</td>
 							</tr>
 						</c:forEach>
 					</tbody>
