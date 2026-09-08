@@ -571,6 +571,10 @@ button {
 }
 
 /* 點餐商品頁 */
+.order-page {
+	padding: 0;
+}
+
 .order-page .order-container {
     max-width: 1400px;
     margin: 20px auto;
@@ -611,6 +615,7 @@ button {
 }
 
 .order-page .category-section {
+	padding: 20px;
     margin-bottom: 45px;
 }
 
