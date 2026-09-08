@@ -2,6 +2,7 @@ package service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import model.dao.ProductDao;
 import model.dto.ProductDto;
@@ -35,9 +36,25 @@ public class ProductService {
 		}
 		return productDtos;
 		
-		
 		//return productDao.findAll().stream().map(this::toDto).toList();
 						 
+	}
+	
+	// 查詢單一商品
+	public Optional<ProductDto> findById(Integer id) {
+		Optional<Product> productOpt = productDao.findById(id);
+		
+		// 查看 productOpt 裡面是否有資料 ?
+		if(productOpt.isEmpty()) {
+			return Optional.empty();
+		}
+		
+		// 取 product 物件
+		Product product = productOpt.get();
+		// 轉 DTO
+		ProductDto productDto = toDto(product);
+		
+		return Optional.of(productDto);
 	}
 	
 	// 轉 entity
