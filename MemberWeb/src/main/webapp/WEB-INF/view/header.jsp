@@ -7,7 +7,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <header class="member-header">
-    <a class="member-brand" href="${contextPath}" aria-label="歡樂點餐會員服務首頁">
+    <a class="member-brand" href="${contextPath}/login" aria-label="歡樂點餐會員服務首頁">
         <span class="member-brand-mark" aria-hidden="true">M</span>
         <span class="member-brand-text">
             <strong>歡樂點餐</strong>
