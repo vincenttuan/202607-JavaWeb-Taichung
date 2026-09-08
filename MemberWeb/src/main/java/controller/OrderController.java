@@ -61,10 +61,10 @@ public class OrderController extends HttpServlet {
 	
 	// 新增到購物車
 	private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("utf-8");
-		resp.setCharacterEncoding("utf-8");
-		resp.setContentType("text/html;chatset=utf-8");
-		
+//		req.setCharacterEncoding("utf-8");
+//		resp.setCharacterEncoding("utf-8");
+//		resp.setContentType("text/html;chatset=utf-8");
+//		
 		String productId = req.getParameter("productId");
 		
 		Optional<ProductDto> productDtoOpt = productService.findById(Integer.valueOf(productId));
@@ -75,10 +75,10 @@ public class OrderController extends HttpServlet {
 		}
 		
 		ProductDto productDto = productDtoOpt.get();
-		resp.getWriter().println("購入商品:<p />");
-		resp.getWriter().println(productDto);
-		
-		resp.getWriter().println("<hr />");
+//		resp.getWriter().println("購入商品:<p />");
+//		resp.getWriter().println(productDto);
+//		
+//		resp.getWriter().println("<hr />");
 		
 		// 先判斷 session 變數中是否有購物車資料 ?
 		HttpSession session = req.getSession();
@@ -100,11 +100,13 @@ public class OrderController extends HttpServlet {
 		// 回存到 session 變數中 
 		session.setAttribute("CART", cart);
 		
-		resp.getWriter().println("購物車:<p />");
-		resp.getWriter().println("商品數量: " + cart.entrySet().stream().mapToInt((e) -> e.getValue()).sum() + " <p />");
-		resp.getWriter().println("商品明細: " + cart + "<p />");
+//		resp.getWriter().println("購物車:<p />");
+//		resp.getWriter().println("商品數量: " + cart.entrySet().stream().mapToInt((e) -> e.getValue()).sum() + " <p />");
+//		resp.getWriter().println("商品明細: " + cart + "<p />");
+//		
 		
-		
+		// 重導到顯示購物車頁面
+		req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
 	}
 	
 	
