@@ -32,7 +32,7 @@
 					<c:forEach var="item" items="${ sessionScope.CART }">
 						<tr>
 							<td>
-								<img valign="bottom" width="100" src="data:${ item.key.imageType };base64,${ item.key.imageBase64}">
+								<img width="100" src="data:${ item.key.imageType };base64,${ item.key.imageBase64}">
 							</td>
 							<td>
 								${ item.key.name }
