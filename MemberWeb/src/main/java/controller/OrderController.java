@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -57,7 +58,16 @@ public class OrderController extends HttpServlet {
 	// 新增到購物車
 	private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String productId = req.getParameter("productId");
-		resp.getWriter().print("productId = " + productId);
+		
+		Optional<ProductDto> productDtoOpt = productService.findById(Integer.valueOf(productId));
+		
+		if(productDtoOpt.isEmpty()) {
+			resp.getWriter().print("productId = " + productId + " not found !");
+			return;
+		}
+		
+		ProductDto productDto = productDtoOpt.get();
+		resp.getWriter().print("productDto = " + productDto);
 		
 	}
 	
