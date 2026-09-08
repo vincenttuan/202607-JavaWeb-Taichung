@@ -101,7 +101,7 @@ public class OrderController extends HttpServlet {
 		session.setAttribute("CART", cart);
 		
 		resp.getWriter().println("購物車:<p />");
-		resp.getWriter().println("商品種類: " + cart.size() + " 種<p />");
+		resp.getWriter().println("商品數量: " + cart.entrySet().stream().mapToInt((e) -> e.getValue()).sum() + " <p />");
 		resp.getWriter().println("商品明細: " + cart + "<p />");
 		
 		
