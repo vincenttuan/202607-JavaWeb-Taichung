@@ -14,7 +14,6 @@
 
     <main>
 		<h1>購物車</h1>
-		${ sessionScope.CART }
 		
 		<div class="cart">
 			<table>
@@ -29,6 +28,9 @@
 					</tr>
 				</thead>
 				<tbody>
+					<!-- 初始化總計金額 -->
+					<c:set var="totalPrice" value="0" />
+					
 					<c:forEach var="item" items="${ sessionScope.CART }">
 						<tr>
 							<td>
@@ -50,9 +52,18 @@
 								
 							</td>
 						</tr>
+						<!-- 累計總計金額 -->
+						<c:set var="totalPrice" value="${ totalPrice + (item.key.price * item.value) }" />
 					</c:forEach>
 				</tbody>
 			</table>
+			
+			<!-- 總計 -->
+			<div class="summary">
+				<span>總計</span>
+				<span>$${ totalPrice }</span>
+			</div>
+			
 		</div>
 		
 		
