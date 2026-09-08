@@ -21,6 +21,7 @@
 				<thead>
 					<tr>
 						<th>商品</th>
+						<th>名稱</th>
 						<th>單價</th>
 						<th>數量</th>
 						<th>小計</th>
@@ -31,7 +32,9 @@
 					<c:forEach var="item" items="${ sessionScope.CART }">
 						<tr>
 							<td>
-								<img width="100" src="data:${ item.key.imageType };base64,${ item.key.imageBase64}">
+								<img valign="bottom" width="100" src="data:${ item.key.imageType };base64,${ item.key.imageBase64}">
+							</td>
+							<td>
 								${ item.key.name }
 							</td>
 							<td>
