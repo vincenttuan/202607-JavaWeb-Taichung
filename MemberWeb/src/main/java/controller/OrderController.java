@@ -57,6 +57,9 @@ public class OrderController extends HttpServlet {
 	
 	// 新增到購物車
 	private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html;chatset=utf-8");
+		
 		String productId = req.getParameter("productId");
 		
 		Optional<ProductDto> productDtoOpt = productService.findById(Integer.valueOf(productId));
