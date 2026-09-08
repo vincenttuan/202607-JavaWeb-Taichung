@@ -35,6 +35,8 @@ public class OrderController extends HttpServlet {
 	
 	private ProductService productService = new ProductService();
 	
+	List<ProductDto> productDtos = new ArrayList<>();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String action = req.getParameter("action");
@@ -77,7 +79,6 @@ public class OrderController extends HttpServlet {
 		
 		resp.getWriter().println("<hr />");
 		// 建立一個 List 保存選購的商品
-		List<ProductDto> productDtos = new ArrayList<>();
 		productDtos.add(productDto);
 		
 		resp.getWriter().println("購物車:<p />");
