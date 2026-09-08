@@ -80,10 +80,10 @@ public class OrderController extends HttpServlet {
 		
 		// 先判斷 session 變數中是否有購物車資料 ?
 		HttpSession session = req.getSession();
-		
+		// 購物車宣告
 		List<ProductDto> productDtos = null;
 		if(session.getAttribute("CART") == null) { // 沒有購物車資訊
-			// 建立一個 List 保存選購的商品
+			// 建立一個 List 保存選購的商品 (新建立一個購物車)
 			productDtos = new ArrayList<>();
 			// 存放到 session 變數中
 			session.setAttribute("CART", productDtos);
@@ -94,6 +94,9 @@ public class OrderController extends HttpServlet {
 		
 		// 將商品加入到購物車中
 		productDtos.add(productDto);
+		
+		// 回存到 session 變數中 
+		session.setAttribute("CART", productDtos);
 		
 		resp.getWriter().println("購物車:<p />");
 		resp.getWriter().println("商品數量: " + productDtos.size() + "<p />");
