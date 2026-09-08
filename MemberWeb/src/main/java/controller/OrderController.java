@@ -57,6 +57,7 @@ public class OrderController extends HttpServlet {
 	
 	// 新增到購物車
 	private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;chatset=utf-8");
 		
