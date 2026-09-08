@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.dto.ProductDto;
 import service.ProductService;
 
@@ -34,8 +35,6 @@ import service.ProductService;
 public class OrderController extends HttpServlet {
 	
 	private ProductService productService = new ProductService();
-	
-	List<ProductDto> productDtos = new ArrayList<>();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -78,7 +77,22 @@ public class OrderController extends HttpServlet {
 		resp.getWriter().println(productDto);
 		
 		resp.getWriter().println("<hr />");
-		// 建立一個 List 保存選購的商品
+		
+		// 先判斷 session 變數中是否有購物車資料 ?
+		HttpSession session = req.getSession();
+		
+		List<ProductDto> productDtos = null;
+		if(session.getAttribute("CART") == null) { // 沒有購物車資訊
+			// 建立一個 List 保存選購的商品
+			productDtos = new ArrayList<>();
+			// 存放到 session 變數中
+			session.setAttribute("CART", productDtos);
+		}
+		
+		// 自 session 變數中取得購物車資訊
+		productDtos = (List)session.getAttribute("CART");
+		
+		// 將商品加入到購物車中
 		productDtos.add(productDto);
 		
 		resp.getWriter().println("購物車:<p />");
