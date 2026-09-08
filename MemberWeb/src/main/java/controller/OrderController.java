@@ -56,7 +56,9 @@ public class OrderController extends HttpServlet {
 	
 	// 新增到購物車
 	private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getWriter().print("Not ready ...");
+		String productId = req.getParameter("productId");
+		resp.getWriter().print("productId = " + productId);
+		
 	}
 	
 	
