@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,7 +72,18 @@ public class OrderController extends HttpServlet {
 		}
 		
 		ProductDto productDto = productDtoOpt.get();
-		resp.getWriter().print("productDto = " + productDto);
+		resp.getWriter().println("購入商品:<p />");
+		resp.getWriter().println(productDto);
+		
+		resp.getWriter().println("<hr />");
+		// 建立一個 List 保存選購的商品
+		List<ProductDto> productDtos = new ArrayList<>();
+		productDtos.add(productDto);
+		
+		resp.getWriter().println("購物車:<p />");
+		resp.getWriter().println("商品數量: " + productDtos.size() + "<p />");
+		resp.getWriter().println("商品明細: " + productDtos + "<p />");
+		
 		
 	}
 	
