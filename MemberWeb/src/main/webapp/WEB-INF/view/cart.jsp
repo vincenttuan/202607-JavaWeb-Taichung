@@ -46,7 +46,9 @@
 							<td>
 								${ item.key.price * item.value }
 							</td>
-							<td></td>
+							<td>
+								
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
