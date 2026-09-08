@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import model.entity.Product;
 import model.util.DBUtil;
@@ -81,5 +82,44 @@ public class ProductDao {
 		return products;
 	} 
 	
+	// 查詢單筆商品
+	public Optional<Product> findById(Integer id) {
+		String sql = """
+				select id, name, category, price, stock, image_base64, image_type, create_at, update_at
+				from product
+				where id=?
+				""";
+		
+		try(Connection conn = DBUtil.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, id);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				
+				if(rs.next()) {
+					// 建立 entity
+					Product product = new Product();
+					product.setId(rs.getInt("id"));
+					product.setName(rs.getString("name"));
+					product.setCategory(rs.getString("category"));
+					product.setPrice(rs.getInt("price"));
+					product.setStock(rs.getInt("stock"));
+					product.setImageBase64(rs.getString("image_base64"));
+					product.setImageType(rs.getString("image_type"));
+					product.setCreateAt(rs.getTimestamp("create_at").toLocalDateTime());
+					product.setUpdateAt(rs.getTimestamp("update_at").toLocalDateTime());
+					
+					return Optional.of(product);
+				}
+			}
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("查詢商品失敗: " + e.getMessage());
+		}
+		
+		
+		return Optional.empty();
+	}
 	
 }
