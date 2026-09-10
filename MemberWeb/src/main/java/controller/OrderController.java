@@ -165,8 +165,10 @@ public class OrderController extends HttpServlet {
 		// 自 session 變數中取得購物車資訊
 		cart = (Map)session.getAttribute("CART");
 		
-		// 判斷目前庫存數量
+		// 目前 productId 庫存數量
 		int currentStock = productService.findById(Integer.valueOf(productId)).get().getStock();
+		
+		// 目前 productId 在購物車中購買的數量
 		int currentQty = cart.entrySet()
 								.stream()
 								.filter(e -> e.getKey().getId().equals(Integer.valueOf(productId)))
