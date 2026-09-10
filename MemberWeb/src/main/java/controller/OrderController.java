@@ -106,16 +106,22 @@ public class OrderController extends HttpServlet {
 		
 		// 回存到 session 變數中 
 		session.setAttribute("CART", cart);
-		session.setAttribute("CART_COUNT", cart.size());
+		
+		// 設定購物車商品數量
+		calcAndSetCartCount(cart, session);
+		
 //		resp.getWriter().println("購物車:<p />");
 //		resp.getWriter().println("商品數量: " + cart.entrySet().stream().mapToInt((e) -> e.getValue()).sum() + " <p />");
 //		resp.getWriter().println("商品明細: " + cart + "<p />");
-//		
 		
 		// 重導到顯示購物車頁面
 		req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
 	}
 	
+	// 設定購物車商品數量
+	private void calcAndSetCartCount(Map<ProductDto, Integer> cart, HttpSession session) {
+		session.setAttribute("CART_COUNT", cart.entrySet().stream().mapToInt((e) -> e.getValue()).sum());
+	}
 	
 	// 呈現商品資料
 	private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
