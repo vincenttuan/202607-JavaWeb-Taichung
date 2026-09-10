@@ -166,7 +166,10 @@ public class OrderController extends HttpServlet {
 		cart = (Map)session.getAttribute("CART");
 		
 		// 判斷目前庫存數量
-		int currentStock = cart.getOrDefault(productDto, 0);
+		int currentStock = cart.entrySet()
+								.stream()
+								.filter(e -> e.getKey().getId().equals(productId)) 
+								.mapToInt((e) -> e.getKey().getStock()).sum();
 		
 		if(currentStock > 0) {
 			// 將商品加入到購物車中
