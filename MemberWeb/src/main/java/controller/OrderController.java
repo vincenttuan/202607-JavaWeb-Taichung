@@ -194,7 +194,7 @@ public class OrderController extends HttpServlet {
 		//req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
 		
 		// 重導到顯示購物車頁面
-		resp.sendRedirect("/MemberWeb/order");
+		resp.sendRedirect("/MemberWeb/order#" + productId);
 	}
 	
 	// 設定購物車商品數量
