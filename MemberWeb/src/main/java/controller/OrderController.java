@@ -45,6 +45,7 @@ public class OrderController extends HttpServlet {
 		
 		switch(action) {
 			case "" -> showProduct(req, resp); 
+			case "cart" -> showCart(req, resp);
 		}
 		
 	}
@@ -57,6 +58,12 @@ public class OrderController extends HttpServlet {
 		switch(action) {
 			case "insert" -> addToCart(req, resp); 
 		}
+	}
+	
+	// 查看購物車
+	private void showCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 重導到顯示購物車頁面
+		req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
 	}
 	
 	// 新增到購物車
