@@ -67,7 +67,14 @@
 								${ item.key.price * item.value }
 							</td>
 							<td>
-								
+								<form method="post" action="${pageContext.request.contextPath}/order">
+									
+									<input type="hidden" name="action" value="remove">
+									<input type="hidden" name="productId" value="${ item.key.id }">
+									
+									<button type="submit">移除</button>			
+									
+								</form>
 							</td>
 						</tr>
 						<!-- 累計總計金額 -->
