@@ -106,7 +106,7 @@ public class OrderController extends HttpServlet {
 		
 		// 回存到 session 變數中 
 		session.setAttribute("CART", cart);
-		
+		session.setAttribute("CART_COUNT", cart.size());
 //		resp.getWriter().println("購物車:<p />");
 //		resp.getWriter().println("商品數量: " + cart.entrySet().stream().mapToInt((e) -> e.getValue()).sum() + " <p />");
 //		resp.getWriter().println("商品明細: " + cart + "<p />");
