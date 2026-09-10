@@ -66,7 +66,6 @@ public class OrderController extends HttpServlet {
 	// 移除指定商品
 	private void removeCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer productId = Integer.valueOf(req.getParameter("productId"));
-		Integer quantity = Integer.valueOf(req.getParameter("quantity"));
 		
 		// 取得 session CART 資料
 		HttpSession session = req.getSession(false);
