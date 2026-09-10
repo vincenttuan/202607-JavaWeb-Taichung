@@ -794,6 +794,10 @@ button {
 }
 
 /* 購物車頁 */
+.cart-page {
+    padding: 0;
+}
+
 .cart-page main {
     max-width: 900px;
     margin: 30px auto;
