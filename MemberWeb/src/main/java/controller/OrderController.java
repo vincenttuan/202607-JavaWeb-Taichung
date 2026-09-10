@@ -179,7 +179,8 @@ public class OrderController extends HttpServlet {
 //		resp.getWriter().println("商品明細: " + cart + "<p />");
 		
 		// 重導到顯示購物車頁面
-		req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
+		//req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
+		resp.sendRedirect("/MemberWeb/order");
 	}
 	
 	// 設定購物車商品數量
