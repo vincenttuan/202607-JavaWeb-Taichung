@@ -41,5 +41,7 @@
         
         <a class="member-nav-link" href="${contextPath}/order">訂購</a>
         
+        <a class="member-nav-link" href="${contextPath}/order?action=cart">🛒</a>
+        
     </nav>
 </header>
