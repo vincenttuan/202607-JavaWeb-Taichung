@@ -55,6 +55,7 @@
 											min="1"
 											max="${ item.key.stock }"
 											onkeydown="return false"
+											onwheel="return false"
 											oninput="this.form.submit()"/>
 									<button type="submit">更新</button>			
 									
