@@ -41,7 +41,12 @@
         
         <a class="member-nav-link" href="${contextPath}/order">訂購</a>
         
-        <a class="member-nav-link" href="${contextPath}/order?action=cart">🛒 (${ sessionScope.CART_COUNT })</a>
+        <a class="member-nav-link" href="${contextPath}/order?action=cart">
+        	🛒
+        	 <c:if test="${ sessionScope.CART_COUNT > 0}">
+        		(${ sessionScope.CART_COUNT })
+        	</c:if>
+        </a>
         
     </nav>
 </header>
