@@ -45,8 +45,8 @@
 							<td>
 								<form method="post" action="${pageContext.request.contextPath}/order">
 									
-									<input type="" name="action" value="update">
-									<input type="" name="productId" value="${ item.key.id }">
+									<input type="hidden" name="action" value="update">
+									<input type="hidden" name="productId" value="${ item.key.id }">
 									
 									<input  type="number" 
 											class="quantity" 
