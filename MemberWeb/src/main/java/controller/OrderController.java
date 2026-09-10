@@ -57,7 +57,43 @@ public class OrderController extends HttpServlet {
 		
 		switch(action) {
 			case "insert" -> addToCart(req, resp); 
+			case "update" -> updateCart(req, resp);
 		}
+	}
+	
+	// 更新購物車數量
+	private void updateCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Integer productId = Integer.valueOf(req.getParameter("productId"));
+		Integer quantity = Integer.valueOf(req.getParameter("quantity"));
+		
+		// 取得 session CART 資料
+		HttpSession session = req.getSession(false);
+		if(session == null || session.getAttribute("CART") == null) {
+			throw new RuntimeException("無購物車資料");
+		}
+		
+		// 從 session 中將 CART 資料取出
+		Map<ProductDto, Integer> cart = (Map)session.getAttribute("CART");
+		
+		// 找到並修改商品數量
+		// key = 商品, value = 數量
+		for(ProductDto dto : cart.keySet()) {
+			if(dto.getId().equals(productId)) {
+				// 修改數量
+				cart.put(dto, quantity);
+				break;
+			}
+		}
+		
+		// 回存 session
+		session.setAttribute("CART", cart);
+		
+		// 重新設定 cart 商品數量
+		calcAndSetCartCount(cart, session);
+		
+		// 重新執行購物車頁面 
+		showCart(req, resp);
+		
 	}
 	
 	// 查看購物車
