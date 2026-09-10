@@ -43,7 +43,22 @@
 								${ item.key.price }
 							</td>
 							<td>
-								${ item.value }
+								<form method="post" action="${pageContext.request.contextPath}/order">
+									
+									<input type="" name="action" value="update">
+									<input type="" name="productId" value="${ item.key.id }">
+									
+									<input  type="number" 
+											class="quantity" 
+											name="quantity" 
+											value="${ item.value }"
+											min="1"
+											max="${ item.key.stock }" />
+									<button type="submit">更新</button>			
+									
+								</form>
+								
+								
 							</td>
 							<td>
 								${ item.key.price * item.value }

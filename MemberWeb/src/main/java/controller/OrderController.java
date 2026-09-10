@@ -29,7 +29,7 @@ import service.ProductService;
  * 
  * -- POST ----
  * action=insert   -> 將商品新增到購物車
- * action=update   -> 修改購物車商品
+ * action=update   -> 修改購物車商品數量
  * action=remove   -> 移除購物車商品
  * action=checkout -> 結帳
  * */
