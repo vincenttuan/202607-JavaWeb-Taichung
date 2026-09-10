@@ -53,7 +53,9 @@
 											name="quantity" 
 											value="${ item.value }"
 											min="1"
-											max="${ item.key.stock }" />
+											max="${ item.key.stock }"
+											onkeydown="return false"
+											oninput="this.form.submit()"/>
 									<button type="submit">更新</button>			
 									
 								</form>
