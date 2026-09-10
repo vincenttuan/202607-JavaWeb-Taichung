@@ -165,21 +165,27 @@ public class OrderController extends HttpServlet {
 		// 自 session 變數中取得購物車資訊
 		cart = (Map)session.getAttribute("CART");
 		
-		// 將商品加入到購物車中
-		cart.put(productDto, cart.getOrDefault(productDto, 0) + 1);
+		// 判斷目前庫存數量
+		int currentStock = cart.getOrDefault(productDto, 0);
 		
-		// 回存到 session 變數中 
-		session.setAttribute("CART", cart);
-		
-		// 設定購物車商品數量
-		calcAndSetCartCount(cart, session);
-		
+		if(currentStock > 0) {
+			// 將商品加入到購物車中
+			cart.put(productDto, cart.getOrDefault(productDto, 0) + 1);
+			
+			// 回存到 session 變數中 
+			session.setAttribute("CART", cart);
+			
+			// 設定購物車商品數量
+			calcAndSetCartCount(cart, session);
+		}
 //		resp.getWriter().println("購物車:<p />");
 //		resp.getWriter().println("商品數量: " + cart.entrySet().stream().mapToInt((e) -> e.getValue()).sum() + " <p />");
 //		resp.getWriter().println("商品明細: " + cart + "<p />");
 		
 		// 重導到顯示購物車頁面
 		//req.getRequestDispatcher("/WEB-INF/view/cart.jsp").forward(req, resp);
+		
+		// 重導到顯示購物車頁面
 		resp.sendRedirect("/MemberWeb/order");
 	}
 	
