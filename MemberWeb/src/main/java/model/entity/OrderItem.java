@@ -9,7 +9,7 @@ package model.entity;
  	id int primary key auto_increment,
  	order_id int not null,
  	product_id int not null,
- 	product_name varchar() not null,
+ 	product_name varchar(50) not null,
  	unit_price int not null,
  	quantity int not null check (quantity > 0),
  	subtotal int not null,
