@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OrderItemDTO {
 	
-	private Long productId;
+	private Integer productId;
 	private String productName;
 	private Integer unitPrice;
 	private Integer quantity;
 	
 	// 小計
-	private Long subtotal;
+	private Integer subtotal;
 	
 }

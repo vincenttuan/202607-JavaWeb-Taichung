@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OrderDTO {
 	
-	private Long orderId;
-	private Long totalAmount;
+	private Integer orderId;
+	private Integer totalAmount;
 	
 	private String customerName;
 	private String customerPhone;
 	private String createdAt;
 	private List<OrderItemDTO> items = new ArrayList<>();
 	
-	public OrderDTO(Long orderId, Long totalAmount) {
+	public OrderDTO(Integer orderId, Integer totalAmount) {
 		this.orderId = orderId;
 		this.totalAmount = totalAmount;
 	}
