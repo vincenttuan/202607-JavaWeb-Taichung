@@ -1,5 +1,9 @@
 package model.entity;
 
+import java.time.LocalDateTime;
+
+import lombok.Data;
+
 /**
  * 訂單明細
  * 
@@ -22,7 +26,15 @@ package model.entity;
   
   
  * */
-
+@Data
 public class OrderItem {
-
+	private Integer id;
+	private Integer orderId;
+	private Integer productId;
+	private String productName;
+	private Integer unitPrice;
+	private Integer quantity;
+	private Integer subtotal;
+	private LocalDateTime createAt;
+	private LocalDateTime updateAt;
 }
