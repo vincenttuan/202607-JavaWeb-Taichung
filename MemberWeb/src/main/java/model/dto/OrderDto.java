@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDTO {
+public class OrderDto {
 	
 	private Integer orderId;
 	private Integer totalAmount;
@@ -20,9 +20,9 @@ public class OrderDTO {
 	
 	private String createdAt;
 	
-	private List<OrderItemDTO> items = new ArrayList<>();
+	private List<OrderItemDto> items = new ArrayList<>();
 	
-	public OrderDTO(Integer orderId, Integer totalAmount) {
+	public OrderDto(Integer orderId, Integer totalAmount) {
 		this.orderId = orderId;
 		this.totalAmount = totalAmount;
 	}
