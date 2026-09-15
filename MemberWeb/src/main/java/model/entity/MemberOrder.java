@@ -1,5 +1,9 @@
 package model.entity;
 
+import java.time.LocalDateTime;
+
+import lombok.Data;
+
 /**
  * 會員訂單資料 table 建立
   
@@ -19,7 +23,12 @@ package model.entity;
  
   
  * */
-
+@Data
 public class MemberOrder {
-
+	private Integer id;
+	private Integer memberId;
+	private Integer totalAmount;
+	private String status;
+	private LocalDateTime createAt;
+	private LocalDateTime updateAt;
 }
