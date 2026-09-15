@@ -4,6 +4,7 @@ package model.entity;
  * 會員訂單資料 table 建立
   
  use shopping;
+ 
  create table if not exists member_order (
  	id int primary key auto_increment,
  	member_id int not null,
