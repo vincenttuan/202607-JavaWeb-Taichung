@@ -16,8 +16,10 @@ public class OrderDTO {
 	private Integer totalAmount;
 	
 	private String customerName;
-	private String customerPhone;
+	private String customerEmail;
+	
 	private String createdAt;
+	
 	private List<OrderItemDTO> items = new ArrayList<>();
 	
 	public OrderDTO(Integer orderId, Integer totalAmount) {
