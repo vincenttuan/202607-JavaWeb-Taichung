@@ -50,7 +50,7 @@ public class OrderService {
 				orders.put(orderId, orderDto);
 			}
 			
-			// 建立 OrderItemDto
+			// 建立訂單明細 OrderItemDto
 			OrderItemDto orderItemDto = new OrderItemDto();
 			orderItemDto.setProductName((String)row.get("product_name"));
 			orderItemDto.setUnitPrice((Integer)row.get("unit_price"));
