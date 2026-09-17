@@ -31,6 +31,22 @@
     					<span class="label">訂單編號</span>
     					<strong>#${ order.orderId }</strong>
     				</div>
+    				<div>
+    					<span class="label">客戶名稱</span>
+    					${ order.customerName }
+    				</div>
+    				<div>
+    					<span class="label">客戶 Email</span>
+    					${ order.customerEmail }
+    				</div>
+    				<div>
+    					<span class="label">結帳時間</span>
+    					${ order.createdAt }
+    				</div>
+    				<div>
+    					<span class="label">總金額</span>
+    					${ order.totalAmount }
+    				</div>
     			</div>
     			
     		</article>
