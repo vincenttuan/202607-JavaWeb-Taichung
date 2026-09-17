@@ -9,6 +9,7 @@ import java.util.Map;
 
 import model.dao.OrderDao;
 import model.dto.OrderDto;
+import model.dto.OrderItemDto;
 
 public class OrderService {
 	
@@ -49,11 +50,20 @@ public class OrderService {
 				orders.put(orderId, orderDto);
 			}
 			
+			// 建立 OrderItemDto
+			OrderItemDto orderItemDto = new OrderItemDto();
 			
+			// 找到訂單
+			OrderDto orderDto = orders.get(orderId);
 			
+			orderItemDto.setProductName((String)row.get("product_name"));
+			orderItemDto.setUnitPrice((Integer)row.get("unit_price"));
+			orderItemDto.setQuantity((Integer)row.get("quantity"));
+			orderItemDto.setSubtotal((Integer)row.get("subtotal"));
+			
+			// 將訂單明細加入到訂單主檔
+			orderDto.getItems().add(orderItemDto);
 		}
-		
-		
 		
 		return new ArrayList<>(orders.values());
 	}
