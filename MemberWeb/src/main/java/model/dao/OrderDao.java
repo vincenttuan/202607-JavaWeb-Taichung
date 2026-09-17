@@ -1,5 +1,9 @@
 package model.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  查詢所有訂單的 SQL
  select
@@ -33,6 +37,29 @@ order by
 
 public class OrderDao {
 	
+	/**
+	 * 查詢所有訂單
+	 * key:欄位名稱 <String>
+	 * value:欄位內容 <Object>
+	 * 每一筆訂單的資料容器: Map<String, Object>
+	 * 放置所有訂單資料容器: List<Map<String, Object>>
+	 * */
+	public List<Map<String, Object>> findAllOrders() {
+		List<Map<String, Object>> rows = new ArrayList<>();
+		
+		
+		return rows;
+	}
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
