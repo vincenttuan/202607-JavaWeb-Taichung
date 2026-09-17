@@ -1,8 +1,15 @@
 package model.dao;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import model.util.DBUtil;
 
 /**
  查詢所有訂單的 SQL
@@ -71,6 +78,34 @@ public class OrderDao {
 				    o.id desc,
 				    i.id;
 				""";
+		
+		try(Connection conn = DBUtil.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)) {
+			
+			while (rs.next()) { // 走訪每一筆紀錄
+				// 建立 Map 資料容器用來放尋訪到的每一筆紀錄
+				Map<String, Object> row = new LinkedHashMap<>();
+				
+				row.put("order_id", rs.getInt("order_id"));
+				row.put("member_id", rs.getInt("member_id"));
+				row.put("member_name", rs.getString("member_name"));
+				row.put("member_email", rs.getString("member_email"));
+				row.put("total_amount", rs.getInt("total_amount"));
+				row.put("create_at", rs.getTimestamp("create_at"));
+				row.put("item_id", rs.getInt("item_id"));
+				row.put("product_name", rs.getString("product_name"));
+				row.put("unit_price", rs.getInt("unit_price"));
+				row.put("quantity", rs.getInt("quantity"));
+				row.put("subtotal", rs.getInt("subtotal"));
+				
+				// 加入到 rows 中
+				rows.add(row);
+			}
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("訂單查詢失敗: " + e);
+		}
 		
 		return rows;
 	}
