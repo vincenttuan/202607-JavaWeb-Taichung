@@ -36,7 +36,7 @@ public class OrderService {
 			// 取得訂單 id
 			int orderId = (Integer)row.get("order_id");
 			
-			// 建立 OrderDto
+			// 建立訂單 OrderDto
 			// 判斷 orders 是否已有 orderId
 			if(!orders.containsKey(orderId)) {
 				OrderDto orderDto = new OrderDto();
