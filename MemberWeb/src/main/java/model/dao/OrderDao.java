@@ -54,7 +54,7 @@ public class OrderDao {
 	public List<Map<String, Object>> findAllOrders() {
 		List<Map<String, Object>> rows = new ArrayList<>();
 		
-		String sql = "SELECT * FROM find_all_ordes_view";
+		String sql = "SELECT * FROM find_all_orders_view";
 		
 		try(Connection conn = DBUtil.getConnection();
 			Statement stmt = conn.createStatement();
