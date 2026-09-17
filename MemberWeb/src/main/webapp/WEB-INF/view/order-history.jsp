@@ -68,7 +68,6 @@
     				</tbody>
     			</table>
     			
-    			
     		</article>
     	</c:forEach>
     	
