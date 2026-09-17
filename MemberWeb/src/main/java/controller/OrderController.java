@@ -75,7 +75,7 @@ public class OrderController extends HttpServlet {
 		
 		req.setAttribute("orders", orders);
 		req.setAttribute("orderCount", orderCount);
-		req.getRequestDispatcher("/WEB-INF/view/history.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/view/order-history.jsp").forward(req, resp);
 		
 	}
 	
