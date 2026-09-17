@@ -16,6 +16,26 @@
     <main>
     	${ orders } <p />
     	${ orderCount }
+    	<hr />
+    	
+    	<div class="page-header">
+    		<h1>歷史訂單資料</h1>
+    		<p>訂單筆數：${ orderCount } 筆</p>
+    	</div>
+    	
+    	<c:forEach var="order" items=${ orders }>
+    		<article class="order-card">
+    			<!-- 訂單主檔 -->
+    			<div class="order-header">
+    				<div>
+    					<span class="label">訂單編號</span>
+    					<strong>#${ order.orderId }</strong>
+    				</div>
+    			</div>
+    			
+    		</article>
+    	</c:forEach>
+    	
     </main>
 
     <jsp:include page="footer.jsp" />
