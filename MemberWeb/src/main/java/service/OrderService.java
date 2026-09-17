@@ -23,8 +23,6 @@ public class OrderService {
 	 * 
 	 * */
 	public List<OrderDto> findAll() {
-		List<OrderDto> orderDtos = new ArrayList<>();
-		
 		// 取得原始訂單資料
 		List<Map<String, Object>> rows = orderDao.findAllOrders();
 		
@@ -40,15 +38,15 @@ public class OrderService {
 			// 建立 OrderDto
 			// 判斷 orders 是否已有 orderId
 			if(!orders.containsKey(orderId)) {
-				OrderDto order = new OrderDto();
-				order.setOrderId(orderId);
-				order.setCustomerName((String)row.get("member_name"));
-				order.setCustomerEmail((String)row.get("member_email"));
-				order.setTotalAmount((Integer)row.get("total_amount"));
-				order.setCreatedAt(((Timestamp)row.get("create_at")).toLocalDateTime().format(DATE_TIME_FORMATTER));
+				OrderDto orderDto = new OrderDto();
+				orderDto.setOrderId(orderId);
+				orderDto.setCustomerName((String)row.get("member_name"));
+				orderDto.setCustomerEmail((String)row.get("member_email"));
+				orderDto.setTotalAmount((Integer)row.get("total_amount"));
+				orderDto.setCreatedAt(((Timestamp)row.get("create_at")).toLocalDateTime().format(DATE_TIME_FORMATTER));
 				
-				// 將 OrdeDto 放入到 Map 集合
-				orders.put(orderId, order);
+				// 將 OrderDto 放入到 Map 集合
+				orders.put(orderId, orderDto);
 			}
 			
 			
@@ -57,7 +55,7 @@ public class OrderService {
 		
 		
 		
-		return orderDtos;
+		return new ArrayList<>(orders.values());
 	}
 	
 	
