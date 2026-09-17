@@ -41,6 +41,8 @@
         
         <a class="member-nav-link" href="${contextPath}/order">訂購</a>
         
+        <a class="member-nav-link" href="${contextPath}/order?action=history">歷史訂單</a>
+        
         <a class="member-nav-link" href="${contextPath}/order?action=cart">
         	🛒
         	 <c:if test="${ sessionScope.CART_COUNT > 0}">
