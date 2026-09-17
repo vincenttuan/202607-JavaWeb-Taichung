@@ -14,10 +14,6 @@
     <jsp:include page="header.jsp" />
 
     <main>
-    	${ orders } <p />
-    	${ orderCount }
-    	<hr />
-    	
     	<div class="page-header">
     		<h1>歷史訂單資料</h1>
     		<p>訂單筆數：${ orderCount } 筆</p>
