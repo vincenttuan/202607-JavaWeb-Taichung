@@ -13,7 +13,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.dto.OrderDto;
 import model.dto.ProductDto;
+import service.OrderService;
 import service.ProductService;
 
 /**
@@ -37,6 +39,7 @@ import service.ProductService;
 public class OrderController extends HttpServlet {
 	
 	private ProductService productService = new ProductService();
+	private OrderService orderService = new OrderService();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -46,6 +49,7 @@ public class OrderController extends HttpServlet {
 		switch(action) {
 			case "" -> showProduct(req, resp); 
 			case "cart" -> showCart(req, resp);
+			case "history" -> showHistory(req, resp);
 		}
 		
 	}
@@ -61,6 +65,18 @@ public class OrderController extends HttpServlet {
 			case "remove" -> removeCart(req, resp);
 			
 		}
+	}
+	
+	// 歷史訂單查詢
+	private void showHistory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		List<OrderDto> orders = orderService.findAll();
+		int orderCount = orders.size();
+		
+		req.setAttribute("orders", orders);
+		req.setAttribute("orderCount", orderCount);
+		req.getRequestDispatcher("/WEB-INF/view/history.jsp").forward(req, resp);
+		
 	}
 	
 	// 移除指定商品
