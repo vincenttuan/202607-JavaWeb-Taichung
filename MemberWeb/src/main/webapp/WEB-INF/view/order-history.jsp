@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>歷史訂單資料</title>
 </head>
-<body class="member-page">
+<body class="history-page">
     <jsp:include page="header.jsp" />
 
     <main>
