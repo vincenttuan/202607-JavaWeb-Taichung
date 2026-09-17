@@ -50,9 +50,6 @@ public class OrderService {
 				orders.put(orderId, orderDto);
 			}
 			
-			// 找到訂單
-			OrderDto orderDto = orders.get(orderId);
-						
 			// 建立 OrderItemDto
 			OrderItemDto orderItemDto = new OrderItemDto();
 			orderItemDto.setProductName((String)row.get("product_name"));
@@ -60,6 +57,8 @@ public class OrderService {
 			orderItemDto.setQuantity((Integer)row.get("quantity"));
 			orderItemDto.setSubtotal((Integer)row.get("subtotal"));
 			
+			// 找到訂單
+			OrderDto orderDto = orders.get(orderId);
 			// 將訂單明細加入到訂單主檔
 			orderDto.getItems().add(orderItemDto);
 		}
