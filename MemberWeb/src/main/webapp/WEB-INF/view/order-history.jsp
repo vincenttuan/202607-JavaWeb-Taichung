@@ -23,7 +23,7 @@
     		<p>訂單筆數：${ orderCount } 筆</p>
     	</div>
     	
-    	<c:forEach var="order" items=${ orders }>
+    	<c:forEach var="order" items="${ orders }">
     		<article class="order-card">
     			<!-- 訂單主檔 -->
     			<div class="order-header">
