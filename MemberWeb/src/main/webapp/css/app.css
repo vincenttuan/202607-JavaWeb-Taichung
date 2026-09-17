@@ -958,6 +958,10 @@ button {
 }
 
 /* 訂單歷史頁 */
+.history-page {
+	padding: 0;
+}
+
 .history-page main {
     max-width: 1050px;
     margin: 30px auto;
