@@ -46,7 +46,12 @@ public class OrderService {
 				order.setCustomerEmail((String)row.get("member_email"));
 				order.setTotalAmount((Integer)row.get("total_amount"));
 				order.setCreatedAt(((Timestamp)row.get("create_at")).toLocalDateTime().format(DATE_TIME_FORMATTER));
+				
+				// 將 OrdeDto 放入到 Map 集合
+				orders.put(orderId, order);
 			}
+			
+			
 			
 		}
 		
