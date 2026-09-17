@@ -49,6 +49,26 @@
     				</div>
     			</div>
     			
+    			<!-- 訂單明細查詢 -->
+    			<table>
+    				<thead>
+    					<tr>
+    						<th>商品</th><th>單價</th><th>數量</th><th>小計</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<c:forEach var="item" items="${ order.items }">
+    						<tr>
+    							<td>${ item.productName }</td>
+    							<td>${ item.unitPrice }</td>
+    							<td>${ item.quantity }</td>
+    							<td>${ item.subtotal }</td>
+    						</tr>
+    					</c:forEach>
+    				</tbody>
+    			</table>
+    			
+    			
     		</article>
     	</c:forEach>
     	
