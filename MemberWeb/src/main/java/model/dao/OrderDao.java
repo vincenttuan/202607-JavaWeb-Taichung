@@ -59,6 +59,18 @@ public class OrderDao {
 	 * 失敗 -> rollback (回滾)
 	 * */
 	public void createOrder(int memberId, List<OrderItemDto> items) {
+		// 查詢商品庫存 sql
+		String productSql = "select id, stock from product where id=?";
+		
+		// 新增訂單 sql
+		String orderSql = "insert into member_order (member_id, total_amount, status) values(?, ?, ?)";
+		
+		// 新增訂單項目 sql
+		String itemSql = """
+					insert into order_item (order_id, product_id, product_name, unit_price, quantity, subtotal)
+					values(?, ?, ?, ?, ?, ?) 
+				""";
+		
 		
 	}
 	
