@@ -104,7 +104,11 @@ public class OrderController extends HttpServlet {
 		session.setAttribute("CART", null);
 		session.setAttribute("CART_COUNT", 0);
 		
-		resp.getWriter().print("checkout ok");
+		// 結帳成功
+		req.setAttribute("title", "結帳");
+		req.setAttribute("message", "結帳成功");
+		
+		req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 		
 		
 	}
