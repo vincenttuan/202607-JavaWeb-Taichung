@@ -51,6 +51,7 @@ public class OrderController extends HttpServlet {
 			case "" -> showProduct(req, resp); 
 			case "cart" -> showCart(req, resp);
 			case "history" -> showHistory(req, resp);
+			case "checkout" -> checkout(req, resp);
 		}
 		
 	}
@@ -66,6 +67,12 @@ public class OrderController extends HttpServlet {
 			case "remove" -> removeCart(req, resp);
 			
 		}
+	}
+	
+	// 結帳
+	private void checkout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
 	}
 	
 	// 歷史訂單查詢
