@@ -70,7 +70,11 @@ public class OrderDao {
 					insert into order_item (order_id, product_id, product_name, unit_price, quantity, subtotal)
 					values(?, ?, ?, ?, ?, ?) 
 				""";
-		
+		// 修改商品庫存 sql
+		String stockSql = """
+					update product set stock = stock - ?
+					where id = ?
+				""";
 		
 	}
 	
