@@ -132,6 +132,29 @@ public class OrderDao {
 				
 			}
 			
+			// 4.建立訂單明細
+			for(OrderItemDto item : items) {
+				
+				try(PreparedStatement ps = conn.prepareStatement(itemSql)) {
+					
+					ps.setInt(1, orderId);
+					ps.setInt(2, item.getProductId());
+					ps.setString(3, item.getProductName());
+					ps.setInt(4, item.getUnitPrice());
+					ps.setInt(5, item.getQuantity());
+					ps.setInt(6, item.getSubtotal());
+					
+					ps.executeUpdate();
+				}
+				
+				// 5.扣庫存
+				try(PreparedStatement ps = conn.prepareStatement(stockSql)) {
+					ps.setInt(1, item.getQuantity());
+					ps.setInt(2, item.getProductId());
+					
+					ps.executeUpdate();
+				}
+			}
 			
 			
 			// 提交確認
