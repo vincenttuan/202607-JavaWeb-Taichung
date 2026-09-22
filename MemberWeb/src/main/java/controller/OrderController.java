@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.dto.OrderDto;
 import model.dto.ProductDto;
+import model.entity.Member;
 import service.OrderService;
 import service.ProductService;
 
@@ -71,6 +72,35 @@ public class OrderController extends HttpServlet {
 	
 	// 結帳
 	private void checkout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 取得 session 資料
+		HttpSession session = req.getSession(false);
+		
+		if(session == null) {
+			throw new RuntimeException("無登入資訊");
+		}
+		
+		if(session.getAttribute("CART") == null) {
+			throw new RuntimeException("無購物車資料");
+		}
+		
+		// 取得登入資料
+		Member member = (Member)session.getAttribute("member");
+		int memberId = member.getId();
+		
+		// 取得購物車資料
+		Map<ProductDto, Integer> cart = (Map)session.getAttribute("CART");
+		if(cart.size() == 0) {
+			throw new RuntimeException("購物車內沒有商品");
+		}
+		
+		// 執行結帳服務
+		orderService.checkout(memberId, cart);
+		
+		// 清除購物車資料
+		session.setAttribute("CART", null);
+		session.setAttribute("CART_COUNT", 0);
+		
+		resp.getWriter().print("checkout ok");
 		
 		
 	}
