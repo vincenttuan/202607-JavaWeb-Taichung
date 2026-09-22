@@ -35,9 +35,10 @@
             <a class="member-nav-link member-nav-link-accent" href="${contextPath}/register">註冊</a>
         </c:if>
         
-        <a class="member-nav-link" href="${contextPath}/products?action=new">商品新增</a>
-        
-        <a class="member-nav-link" href="${contextPath}/products?action=list">商品列表</a>
+        <c:if test="${not empty sessionScope.member}">
+        	<a class="member-nav-link" href="${contextPath}/products?action=new">商品新增</a>
+        	<a class="member-nav-link" href="${contextPath}/products?action=list">商品列表</a>
+        </c:if>
         
         <a class="member-nav-link" href="${contextPath}/order">訂購</a>
         
