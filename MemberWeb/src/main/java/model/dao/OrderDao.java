@@ -70,11 +70,32 @@ public class OrderDao {
 					insert into order_item (order_id, product_id, product_name, unit_price, quantity, subtotal)
 					values(?, ?, ?, ?, ?, ?) 
 				""";
+		
 		// 修改商品庫存 sql
 		String stockSql = """
 					update product set stock = stock - ?
 					where id = ?
 				""";
+		
+		// 資料庫(交易)處理程序
+		try(Connection conn = DBUtil.getConnection()) {
+			// 1.開始 Transaction
+			conn.setAutoCommit(false); // 支援手動 commit
+			
+			int total = 0; // 總金額
+			
+			
+			
+			
+			
+			
+			// 提交確認
+			conn.commit();
+			
+		} catch (SQLException e) {
+			throw new RuntimeException("結帳失敗:" + e);
+		}
+		
 		
 	}
 	
