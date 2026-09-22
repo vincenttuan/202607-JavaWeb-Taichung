@@ -10,12 +10,36 @@ import java.util.Map;
 import model.dao.OrderDao;
 import model.dto.OrderDto;
 import model.dto.OrderItemDto;
+import model.dto.ProductDto;
 
 public class OrderService {
 	
 	private OrderDao orderDao = new OrderDao();
 	
 	private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss E");
+	
+	// 結帳服務
+	// 將 Map<ProductDto, Integer> cart 轉 List<OrderItemDto> items
+	public void checkout(int memberId, Map<ProductDto, Integer> cart) {
+		
+		List<OrderItemDto> items = new ArrayList<>();
+		for(ProductDto dto : cart.keySet()) {
+			 OrderItemDto item = new OrderItemDto();
+			 item.setProductId(dto.getId());
+			 item.setProductName(dto.getName());
+			 item.setUnitPrice(dto.getPrice());
+			 item.setQuantity(cart.get(dto));
+			 
+			 item.setSubtotal(item.getUnitPrice() * item.getQuantity());
+			 
+			 items.add(item);
+		}
+		
+		// 建立訂單並存入到資料表中
+		orderDao.createOrder(memberId, items);
+		
+	}
+	
 	
 	/**
 	 * 查詢所有訂單 
