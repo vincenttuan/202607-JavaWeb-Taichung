@@ -28,12 +28,13 @@ import service.ProductService;
  * action=checkout -> 結帳頁
  * action=history  -> 歷史訂單頁
  * action=success  -> 交易成功頁
+ * action=checkout -> 結帳
  * 
  * -- POST ----
  * action=insert   -> 將商品新增到購物車
  * action=update   -> 修改購物車商品數量
  * action=remove   -> 移除購物車商品
- * action=checkout -> 結帳
+ * 
  * */
 @WebServlet("/order")
 public class OrderController extends HttpServlet {
