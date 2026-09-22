@@ -9,6 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.dto.OrderItemDto;
 import model.util.DBUtil;
 
 /**
@@ -43,6 +44,13 @@ order by
 
 
 public class OrderDao {
+	
+	/**
+	 * 建立訂單
+	 * */
+	public void createOrder(int memberId, List<OrderItemDto> items) {
+		
+	}
 	
 	/**
 	 * 查詢所有訂單
