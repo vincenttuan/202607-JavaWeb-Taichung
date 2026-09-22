@@ -106,10 +106,11 @@ public class OrderController extends HttpServlet {
 		
 		// 結帳成功
 		req.setAttribute("title", "結帳");
-		req.setAttribute("message", "結帳成功");
+		req.setAttribute("message", "結帳成功-請查看歷史訂單");
 		
 		req.getRequestDispatcher("/WEB-INF/view/result.jsp").forward(req, resp);
 		
+		//resp.sendRedirect("/MemberWeb/order?action=history");
 		
 	}
 	
