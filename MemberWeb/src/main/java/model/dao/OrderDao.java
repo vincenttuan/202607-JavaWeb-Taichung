@@ -47,6 +47,16 @@ public class OrderDao {
 	
 	/**
 	 * 建立訂單
+	 * 
+	 * Transaction 交易
+	 * 1. 查詢商品庫存
+	 * 2. 計算總金額
+	 * 3. 建立 MemberOrder -> 得到訂單編號
+	 * 4. 取得訂單編號後 -> 建立 OrderItem
+	 * 5. 扣除庫存
+	 * 
+	 * 成功 -> commit (任務提交)
+	 * 失敗 -> rollback (回滾)
 	 * */
 	public void createOrder(int memberId, List<OrderItemDto> items) {
 		
