@@ -111,6 +111,8 @@ public class OrderDao {
 				ps.close();
 			}
 			
+			// 3.建立訂單
+			
 			
 			
 			
