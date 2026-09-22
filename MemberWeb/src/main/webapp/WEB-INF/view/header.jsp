@@ -41,7 +41,9 @@
         
         <a class="member-nav-link" href="${contextPath}/order">訂購</a>
         
-        <a class="member-nav-link" href="${contextPath}/order?action=history">歷史訂單</a>
+        <c:if test="${not empty sessionScope.member}">
+        	<a class="member-nav-link" href="${contextPath}/order?action=history">歷史訂單</a>
+        </c:if>
         
         <a class="member-nav-link" href="${contextPath}/order?action=cart">
         	🛒
