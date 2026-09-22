@@ -112,7 +112,25 @@ public class OrderDao {
 			}
 			
 			// 3.建立訂單
-			
+			int orderId;
+			try(PreparedStatement ps = conn.prepareStatement(orderSql, Statement.RETURN_GENERATED_KEYS)) {
+				
+				ps.setInt(1, memberId);
+				ps.setInt(2, total);
+				ps.setString(3, "PAID");
+				
+				ps.executeUpdate();
+				
+				// 取得 orderId 的紀錄
+				ResultSet rs = ps.getGeneratedKeys();
+				
+				if(!rs.next()) {
+					throw new RuntimeException("無法取得訂單編號");
+				}
+				
+				orderId = rs.getInt(1); // 得到 orderId
+				
+			}
 			
 			
 			
