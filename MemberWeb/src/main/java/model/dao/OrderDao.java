@@ -156,7 +156,6 @@ public class OrderDao {
 				}
 			}
 			
-			
 			// 提交確認
 			conn.commit();
 			
