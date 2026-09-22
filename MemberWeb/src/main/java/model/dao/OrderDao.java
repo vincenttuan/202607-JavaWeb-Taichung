@@ -160,6 +160,7 @@ public class OrderDao {
 			conn.commit();
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new RuntimeException("結帳失敗:" + e);
 		}
 		
