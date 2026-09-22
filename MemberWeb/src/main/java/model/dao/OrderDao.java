@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -84,7 +85,31 @@ public class OrderDao {
 			
 			int total = 0; // 總金額
 			
-			
+			// 2.檢查商品存在與否? 庫存足量 ?
+			for(OrderItemDto item : items) {
+				
+				PreparedStatement ps = conn.prepareStatement(productSql);
+				ps.setInt(1, item.getProductId());
+				
+				ResultSet rs = ps.executeQuery();
+				
+				// 檢查商品存在與否?
+				if(!rs.next()) {
+					throw new RuntimeException("商品不存在: " + item.getProductId());
+				}
+				
+				// 庫存足量 ?
+				int stock = rs.getInt("stock"); // 目前該商品的庫存
+				if(stock < item.getQuantity()) {
+					throw new RuntimeException(item.getProductName() + " 庫存不足");
+				}
+				
+				// 計算 total
+				total += item.getSubtotal();
+				
+				rs.close();
+				ps.close();
+			}
 			
 			
 			
