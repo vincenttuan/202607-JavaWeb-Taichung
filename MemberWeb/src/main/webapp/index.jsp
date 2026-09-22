@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <%
 	// 重導至商品頁
-	response.sendRedirect("./products");
+	response.sendRedirect("./order");
 %>
