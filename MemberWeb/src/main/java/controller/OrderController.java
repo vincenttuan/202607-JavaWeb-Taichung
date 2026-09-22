@@ -85,6 +85,10 @@ public class OrderController extends HttpServlet {
 		
 		// 取得登入資料
 		Member member = (Member)session.getAttribute("member");
+		if(member == null) {
+			throw new RuntimeException("無會員登入資訊");
+		}
+		
 		int memberId = member.getId();
 		
 		// 取得購物車資料
