@@ -48,7 +48,7 @@ public class OrderService {
 	 * List<Map<String, Object>> -> 轉 -> List<OrderDto>
 	 * 
 	 * */
-	public List<OrderDto> findAll() {
+	private List<OrderDto> findAll() {
 		// 取得原始訂單資料
 		List<Map<String, Object>> rows = orderDao.findAllOrders();
 		

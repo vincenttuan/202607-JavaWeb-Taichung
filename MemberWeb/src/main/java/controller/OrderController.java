@@ -117,7 +117,10 @@ public class OrderController extends HttpServlet {
 	// 歷史訂單查詢
 	private void showHistory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<OrderDto> orders = orderService.findAll();
+		HttpSession session = req.getSession(false);
+		Member member = (Member)session.getAttribute("member");
+		
+		List<OrderDto> orders = orderService.findAllByMember(member);
 		int orderCount = orders.size();
 		
 		req.setAttribute("orders", orders);
