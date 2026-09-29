@@ -272,7 +272,6 @@ public class OrderDao {
 				}
 			}
 			
-			
 		} catch (SQLException e) {
 			throw new RuntimeException("訂單查詢失敗: " + e.getMessage());
 		}
