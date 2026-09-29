@@ -29,7 +29,6 @@ import service.ProductService;
  * action=checkout -> 結帳頁
  * action=history  -> 歷史訂單頁
  * action=success  -> 交易成功頁
- * action=checkout -> 結帳
  * 
  * -- POST ----
  * action=insert   -> 將商品新增到購物車
