@@ -98,6 +98,13 @@ public class OrderService {
 	 * 
 	 * */
 	public List<OrderDto> findAllByMember(Member member) {
+		
+		// 判斷 member role
+		// 若 role = ADMIN 就查詢全部
+		if(member.getRole().equals("ADMIN")) {
+			return findAll(); // 查詢全部
+		}
+		
 		// 取得原始訂單資料
 		List<Map<String, Object>> rows = orderDao.findAllOrdersByMemberId(member.getId());
 		
