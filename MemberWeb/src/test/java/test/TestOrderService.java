@@ -17,7 +17,7 @@ public class TestOrderService {
 		member.setId(3);
 		member.setRole("John");
 				
-		orderService.findAllByMember(member)
+		orderService.findByMember(member)
 					.forEach(System.out::println);
 		
 	}

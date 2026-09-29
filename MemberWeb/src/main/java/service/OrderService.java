@@ -97,7 +97,7 @@ public class OrderService {
 	 * List<Map<String, Object>> -> 轉 -> List<OrderDto>
 	 * 
 	 * */
-	public List<OrderDto> findAllByMember(Member member) {
+	public List<OrderDto> findByMember(Member member) {
 		
 		// 判斷 member role
 		// 若 role = ADMIN 就查詢全部

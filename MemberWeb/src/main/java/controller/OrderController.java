@@ -120,7 +120,7 @@ public class OrderController extends HttpServlet {
 		HttpSession session = req.getSession(false);
 		Member member = (Member)session.getAttribute("member");
 		
-		List<OrderDto> orders = orderService.findAllByMember(member);
+		List<OrderDto> orders = orderService.findByMember(member);
 		int orderCount = orders.size();
 		
 		req.setAttribute("orders", orders);
