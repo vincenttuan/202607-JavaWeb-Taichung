@@ -250,28 +250,28 @@ public class OrderDao {
 			
 			pstmt.setInt(1, memberId);
 			
-			ResultSet rs = pstmt.executeQuery();
-			
-			while (rs.next()) { // 走訪每一筆紀錄
-				// 建立 Map 資料容器用來放尋訪到的每一筆紀錄
-				Map<String, Object> row = new LinkedHashMap<>();
-				
-				row.put("order_id",     rs.getInt("order_id"));
-				row.put("member_id",    rs.getInt("member_id"));
-				row.put("member_name",  rs.getString("member_name"));
-				row.put("member_email", rs.getString("member_email"));
-				row.put("total_amount", rs.getInt("total_amount"));
-				row.put("create_at",    rs.getTimestamp("create_at"));
-				row.put("item_id",      rs.getInt("item_id"));
-				row.put("product_name", rs.getString("product_name"));
-				row.put("unit_price",   rs.getInt("unit_price"));
-				row.put("quantity",     rs.getInt("quantity"));
-				row.put("subtotal",     rs.getInt("subtotal"));
-				
-				// 加入到 rows 中
-				rows.add(row);
+			try(ResultSet rs = pstmt.executeQuery()) {
+				while (rs.next()) { // 走訪每一筆紀錄
+					// 建立 Map 資料容器用來放尋訪到的每一筆紀錄
+					Map<String, Object> row = new LinkedHashMap<>();
+					
+					row.put("order_id",     rs.getInt("order_id"));
+					row.put("member_id",    rs.getInt("member_id"));
+					row.put("member_name",  rs.getString("member_name"));
+					row.put("member_email", rs.getString("member_email"));
+					row.put("total_amount", rs.getInt("total_amount"));
+					row.put("create_at",    rs.getTimestamp("create_at"));
+					row.put("item_id",      rs.getInt("item_id"));
+					row.put("product_name", rs.getString("product_name"));
+					row.put("unit_price",   rs.getInt("unit_price"));
+					row.put("quantity",     rs.getInt("quantity"));
+					row.put("subtotal",     rs.getInt("subtotal"));
+					
+					// 加入到 rows 中
+					rows.add(row);
+				}
 			}
-			rs.close();
+			
 			
 		} catch (SQLException e) {
 			throw new RuntimeException("訂單查詢失敗: " + e.getMessage());
